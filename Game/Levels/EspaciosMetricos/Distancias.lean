@@ -11,10 +11,10 @@ Introduction "En este nivel veremos la definición de distancia y espacio métri
 
 Un *espacio métrico* es un conjunto $X$ junto con una aplicación $d:X × X → ℝ$ tal que:
 
-1. $d(x,x) = 0 ∀ x ∈ X$
-2. $d(x,y) = 0 → x = y ∀ x,y ∈ X $
-3. $d(x,y) = d(y,x) ∀ x,y ∈ X$
-4. $d(x,z) ≤ d(x,y) + d(y,z) ∀ x,y,z ∈ X$
+d1. $d(x,x) = 0 ∀ x ∈ X$
+d2. $d(x,y) = 0 → x = y ∀ x,y ∈ X $
+d3. $d(x,y) = d(y,x) ∀ x,y ∈ X$
+d4. $d(x,z) ≤ d(x,y) + d(y,z) ∀ x,y,z ∈ X$
 "
 
 class espacio_metrico (X : Type) where
@@ -27,33 +27,38 @@ class espacio_metrico (X : Type) where
 open espacio_metrico
 
 TacticDoc rw
-"rw [regla] (at h) usa la afirmación `regla` para reescribir el objetivo, o la hipótesis h"
+"`rw [regla] (at h)` usa la afirmación `regla` para reescribir el objetivo, o la hipótesis h"
 
 TacticDoc linarith
 "Intenta resolver el objetivo aplicando reglas de aritmética lineal a las hipótesis."
 
+TacticDoc «have»
+"`have h : hip` añade una nueva hipótesis h, y un nuevo objetivo para demostrarla.
+
+`have h := proof` añade la hipótesis cuya validez está garantizada por la prueba dada."
+
 DefinitionDoc espacio_metrico as "espacio_metrico"
 "
 Un espacio métrico en un tipo `X` está formado por una aplicación `d` y las propiedades
-d1 d2 d3 d4.
+`d1` `d2` `d3` `d4`.
 "
 
 DefinitionDoc espacio_metrico.d1 as "d1"
 "
-∀ (x : X), d x x = 0
+$∀ (x : X), d x x = 0$
 "
 
 DefinitionDoc espacio_metrico.d2 as "d2"
 "
-∀ (x y : X), d x y = 0 → x = y
+$∀ (x y : X), d x y = 0 → x = y$
 "
 DefinitionDoc espacio_metrico.d3 as "d3"
 "
-∀ (x y : X), d x y = d y x
+$∀ (x y : X), d x y = d y x$
 "
 DefinitionDoc espacio_metrico.d4 as "d4"
 "
-∀ (x y z : X), d x z ≤ d x y + d y z
+$∀ (x y z : X), d x z ≤ d x y + d y z$
 "
 
 
@@ -71,6 +76,6 @@ Conclusion "Enhorabuena, has realizado tu primera demostración."
 
 /- Use these commands to add items to the game's inventory. -/
 
-NewTactic rw linarith
+NewTactic rw linarith «have»
 -- NewLemma Nat.add_comm Nat.add_assoc
 NewDefinition espacio_metrico espacio_metrico.d1 espacio_metrico.d2 espacio_metrico.d3 espacio_metrico.d4
