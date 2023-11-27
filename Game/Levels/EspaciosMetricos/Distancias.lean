@@ -11,10 +11,13 @@ Introduction "En este nivel veremos la definición de distancia y espacio métri
 
 Un *espacio métrico* es un conjunto $X$ junto con una aplicación $d:X × X → ℝ$ tal que:
 
-d1. $d(x,x) = 0 ∀ x ∈ X$
-d2. $d(x,y) = 0 → x = y ∀ x,y ∈ X $
-d3. $d(x,y) = d(y,x) ∀ x,y ∈ X$
-d4. $d(x,z) ≤ d(x,y) + d(y,z) ∀ x,y,z ∈ X$
+d1: $d(x,x) = 0 ∀ x ∈ X$
+
+d2: $d(x,y) = 0 → x = y ∀ x,y ∈ X $
+
+d3: $d(x,y) = d(y,x) ∀ x,y ∈ X$
+
+d4: $d(x,z) ≤ d(x,y) + d(y,z) ∀ x,y,z ∈ X$
 "
 
 class espacio_metrico (X : Type) where
@@ -61,8 +64,12 @@ DefinitionDoc espacio_metrico.d4 as "d4"
 $∀ (x y z : X), d x z ≤ d x y + d y z$
 "
 
+LemmaDoc d_nonneg as "d_nonneg" in "d_nonneg"
+"
+`d_nonneg` es la prueba de que $0 ≤ d x y$.
+"
 
-Statement {X : Type} [espacio_metrico X] (x y : X): 0 ≤ d x y := by
+Statement d_nonneg {X : Type} [espacio_metrico X] (x y : X): 0 ≤ d x y := by
   Hint "Puedes usar `have h := d4 x y x` para añadir la hipótesis de la desigualdad triangular."
   have h := d4 x y x
   Hint "La táctica `rw [d1 x] at h` usa la propiedad `d1` para reescribir la hipóetsis `h`."
