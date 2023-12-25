@@ -29,6 +29,8 @@ class espacio_metrico (X : Type) where
 
 open espacio_metrico
 
+variable {X  : Type} [espacio_metrico X]
+
 TacticDoc rw
 "`rw [regla] (at h)` usa la afirmación `regla` para reescribir el objetivo, o la hipótesis h"
 
@@ -69,7 +71,10 @@ LemmaDoc d_nonneg as "d_nonneg" in "d_nonneg"
 `d_nonneg` es la prueba de que $0 ≤ d x y$.
 "
 
-Statement d_nonneg {X : Type} [espacio_metrico X] (x y : X): 0 ≤ d x y := by
+/--
+La distancia entre dos puntos es no negativa.
+-/
+Statement d_nonneg (x y : X): 0 ≤ d x y := by
   Hint "Puedes usar `have h := d4 x y x` para añadir la hipótesis de la desigualdad triangular."
   have h := d4 x y x
   Hint "La táctica `rw [d1 x] at h` usa la propiedad `d1` para reescribir la hipóetsis `h`."
