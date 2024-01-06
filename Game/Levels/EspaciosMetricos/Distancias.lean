@@ -1,6 +1,8 @@
 import Mathlib.Data.Real.Basic
+import Mathlib.Tactic
 import Game.Metadata
 import GameServer.Commands
+
 
 World "EspaciosMetricos"
 Level 1
@@ -31,45 +33,53 @@ open espacio_metrico
 
 variable {X  : Type} [espacio_metrico X]
 
+/--`rw [regla] (at h)` usa la afirmación `regla` para reescribir el objetivo, o la hipótesis h-/
 TacticDoc rw
-"`rw [regla] (at h)` usa la afirmación `regla` para reescribir el objetivo, o la hipótesis h"
 
+/--Intenta resolver el objetivo aplicando reglas de aritmética lineal a las hipótesis.-/
 TacticDoc linarith
-"Intenta resolver el objetivo aplicando reglas de aritmética lineal a las hipótesis."
 
+/--`have h : hip` añade una nueva hipótesis h, y un nuevo objetivo para demostrarla.
+`have h := proof` añade la hipótesis cuya validez está garantizada por la prueba dada.-/
 TacticDoc «have»
-"`have h : hip` añade una nueva hipótesis h, y un nuevo objetivo para demostrarla.
 
-`have h := proof` añade la hipótesis cuya validez está garantizada por la prueba dada."
 
-DefinitionDoc espacio_metrico as "espacio_metrico"
-"
+
+/--
 Un espacio métrico en un tipo `X` está formado por una aplicación `d` y las propiedades
 `d1` `d2` `d3` `d4`.
-"
+  -/
+DefinitionDoc espacio_metrico as "espacio_metrico"
 
-DefinitionDoc espacio_metrico.d1 as "d1"
-"
+/--
 $∀ (x : X), d x x = 0$
-"
+-/
+DefinitionDoc espacio_metrico.d1 as "d1"
 
-DefinitionDoc espacio_metrico.d2 as "d2"
-"
+/--
 $∀ (x y : X), d x y = 0 → x = y$
-"
-DefinitionDoc espacio_metrico.d3 as "d3"
-"
-$∀ (x y : X), d x y = d y x$
-"
-DefinitionDoc espacio_metrico.d4 as "d4"
-"
-$∀ (x y z : X), d x z ≤ d x y + d y z$
-"
+-/
+DefinitionDoc espacio_metrico.d2 as "d2"
 
-LemmaDoc d_nonneg as "d_nonneg" in "d_nonneg"
-"
+/--
+$∀ (x y : X), d x y = d y x$
+-/
+DefinitionDoc espacio_metrico.d3 as "d3"
+
+/--
+$∀ (x y z : X), d x z ≤ d x y + d y z$
+-/
+DefinitionDoc espacio_metrico.d4 as "d4"
+
+
+TheoremTab "Espacios Métricos"
+
+
+/--
 `d_nonneg` es la prueba de que $0 ≤ d x y$.
-"
+-/
+TheoremDoc d_nonneg as "d_nonneg" in "Espacios Métricos"
+
 
 /--
 La distancia entre dos puntos es no negativa.
