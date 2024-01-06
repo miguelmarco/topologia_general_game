@@ -1,11 +1,10 @@
-# Game Skeleton
+# Juego LEAN de topología general
 
-This is a template for creating a game with [lean4game](https://github.com/leanprover-community/lean4game/). It contains a single Level plus the files needed for a local development setup.
+Juego para [lean4game](https://github.com/leanprover-community/lean4game/) con
+el contenido de un curso de topología general.
 
-The documentation about how to use this template are at the [lean4game repository](https://github.com/leanprover-community/lean4game/):
+## Agradecimientos
 
-* [Creating a new game](https://github.com/leanprover-community/lean4game/blob/main/doc/create_game.md)
-  * [Updating an existing game](https://github.com/leanprover-community/lean4game/blob/main/doc/update_game.md)
-  * [Running a game locally](https://github.com/leanprover-community/lean4game/blob/main/doc/running_locally.md)
+Este repositorio se realiza gracias al apoyo institucional de la Convocatoria competitiva de Proyectos de Innovación de la Universidad de Zaragoza (PI_DTOST) en el año 2023 y con referencia ID 4934 con título "Uso de asistentes de demostración en la enseñanza de las matemáticas ".
 
 
