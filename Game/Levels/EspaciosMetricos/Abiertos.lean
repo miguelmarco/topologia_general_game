@@ -103,23 +103,16 @@ lemma def_abierto (U : Set X) : abierto U ↔ ∀ x ∈ U, entorno x U  := by rf
 LemmaDoc def_abierto as "def_abierto" in "lemas-definición"
 
 
+
+
 /--
-Si la expresión `t` es una prueba de una afirmación de la forma `P ↔ Q`, entonces la táctica
-`rewrite [t]` reemplazará `P` en cualquier lugar donde aparezca en la meta con `Q`. Si deseas
-reemplazar `Q` con `P`, usa `rewrite [← t]`. (Escribe `\\l` para ingresar el símbolo `←`.) Para
-realizar el reemplazo en una suposición `h`, usa `rewrite [t] at h`.
-
-La táctica `rewrite` también se puede usar con ecuaciones. Si `t` es una prueba de una ecuación
-`p = q`, entonces `rewrite [t]` reemplazará `p` con `q` dondequiera que aparezca, y `rewrite [← t]`
-reemplazará `q` con `p`.
-
-Para realizar múltiples reemplazos, uno después de otro, coloca una lista de pruebas dentro de los corchetes, así:
-`rewrite [t1, t2]`.
+Si el objetivo es de la forma `∃ (x : X), P x`, donde `P` es una cierta propiedad
+que pueden cumplir los términos del tipo `X`; e `y` es un término concreto
+de tipo `X`, la táctica `use y` cambiará el objetivo a demostrar `P y`.
 -/
-TacticDoc rewrite
+TacticDoc use
 
-
-NewTactic rewrite
+NewTactic use
 
 /--
 Las bolas son conjuntos abiertos
@@ -141,12 +134,20 @@ Statement bola_abierta (c : X) (r : ℝ ) (hr : r > 0) : abierto (bola c r) := b
   Hint (hidden := true) "`intro h` asumirá la hipótesis"
   intro h
   Hint "Sería útil desarrollar la noción de entorno"
-  Hint (hidden := true) "`rewrite def_entorno` aplicará"
+  Hint (hidden := true) "`rewrite def_entorno` aplicará el resultado que afirma
+  la definición de entorno."
 
   rewrite [def_entorno]
+  Hint  (hidden := true) "`rewrite [def_bola] at h` aplicará el resultado que
+  afirma la definición de bola en la hipótesis `h`."
 
   rewrite [def_bola] at h
+  Hint "Ahora tienes que demostrar que existe un número real que cumple una cierta
+  propiedad. ¿Sabes cual puede ser?.
 
+  Una vez  lo tengas claro, utiliza la táctica `use`, seguida del número en
+  cuestión. EL objetivo pasará a ser demostrar que ese número cumple la propiedad
+  deseada."
   use r - (d c x)
 
   constructor
