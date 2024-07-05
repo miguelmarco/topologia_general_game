@@ -81,6 +81,11 @@ TheoremTab "Espacios Métricos"
 TheoremDoc d_nonneg as "d_nonneg" in "Espacios Métricos"
 
 
+NewTactic rw linarith «have»
+-- NewLemma Nat.add_comm Nat.add_assoc
+NewDefinition espacio_metrico espacio_metrico.d1 espacio_metrico.d2 espacio_metrico.d3 espacio_metrico.d4
+
+
 /--
 La distancia entre dos puntos es no negativa.
 -/
@@ -97,7 +102,3 @@ Statement d_nonneg (x y : X): 0 ≤ d x y := by
 Conclusion "Enhorabuena, has realizado tu primera demostración."
 
 /- Use these commands to add items to the game's inventory. -/
-
-NewTactic rw linarith «have»
--- NewLemma Nat.add_comm Nat.add_assoc
-NewDefinition espacio_metrico espacio_metrico.d1 espacio_metrico.d2 espacio_metrico.d3 espacio_metrico.d4
