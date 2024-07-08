@@ -128,11 +128,11 @@ TacticDoc intro
 
 /--
 Cuando tengas un objetivo construido con varias partes (por ejemplo, una conjunción `A ∧ B`),
-la táctica `constructor` separa el objetivo en varios, consistentes en cada una de las partes.
+la táctica `fconstructor` separa el objetivo en varios, consistentes en cada una de las partes.
 -/
-TacticDoc constructor
+TacticDoc fconstructor
 
-NewTactic use intro constructor
+NewTactic use intro fconstructor
 NewTheorem def_abierto_metrico def_bola def_entorno_metrico
 NewDefinition abierto_metrico bola entorno_metrico
 
@@ -171,9 +171,9 @@ Statement bola_abierta (c : X) (r : ℝ ) (hr : r > 0) : abierto_metrico (bola c
   cuestión. EL objetivo pasará a ser demostrar que ese número cumple la propiedad
   deseada."
   use r - (d c x)
-  Hint "Ante un objetivo construido con varias partes, la táctica `constructor` permite separarlo
+  Hint "Ante un objetivo construido con varias partes, la táctica `fconstructor` permite separarlo
   en varios subobjetivos."
-  constructor
+  fconstructor
   Hint "Ahora tenemos dos objetivos separados, empezemos por el primero"
   Hint (hidden := true) "Para demostrar (des)igualdades usando aritmética sencilla,
   se puede usar la táctica `linarith`"

@@ -1,4 +1,4 @@
-import Game.Levels.EspaciosMetricos.Abiertos
+import Game.Levels.EspaciosMetricos.Cerrados
 
 World "EspaciosMetricos"
 Title "Espacios Métricos"
