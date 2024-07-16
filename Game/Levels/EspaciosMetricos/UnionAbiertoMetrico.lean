@@ -60,8 +60,9 @@ Statement union_abiertos_metricos (X : Type) [espacio_metrico X] (F : Set (Set X
     abierto_metrico (⋃₀ F )  := by
   Hint "Aquí, `F` es una *familia* de conjuntos de `X`, que cumple que todos sus miembros son
   abiertos métricos."
-  Hint (hidden := true) "Puedes empezar desarrollando la definición e abierto métrico."
-  rw [def_abierto_metrico]
+  Hint (hidden := true) "Puedes empezar desarrollando la definición de abierto métrico."
+  Branch
+    rw [def_abierto_metrico]
   Hint (hidden := true) "Como quieres demostrar que algo es cierto para todo `x`, puedes introducir
   un `x` arbitrario con `intro x`."
   intro x
@@ -71,6 +72,8 @@ Statement union_abiertos_metricos (X : Type) [espacio_metrico X] (F : Set (Set X
   Es decir, hay algún conjunto `U`, que pertenece a `F`, y al cual pertenece `{x}`."
   Hint (hidden := true) "La táctica `choose U hUF hxU using {hx}` te permitirá elegir un elemento de `F`
   que cumple lo que queremos."
+  Branch
+    rw [def_entorno_metrico]
   choose U hUF hxU using hx
   Hint "Como todo elemento de `F` es un abierto métrico, y `{U}` es un elemento de `F`... ¿ves cómo
   obtener que `{U}` debe ser abierto métrico?"
@@ -78,10 +81,13 @@ Statement union_abiertos_metricos (X : Type) [espacio_metrico X] (F : Set (Set X
   have hUab := hF U hUF
   Hint "Como `{U}` es abierto métrico, debe ser entorno de sus puntos, en particular de `{x}`."
   Hint (hidden := true) "`have hUent := {hUab} {x} {hxU}` debería darnos `hUent : entorno_metrico x U`."
+  Branch
+    rw [def_abierto_metrico] at hUab
   have hUentx := hUab x hxU
-  Hint (hidden := true) "Posiblemente sea útil desplegar qué significa ser entorno mñetrico de `{x}`."
-  Hint (hidden := true) "`rw [def_entorno_metrico] at *` aplicará le definición de se entorno donde se pueda."
-  rw [def_entorno_metrico] at *
+  Hint (hidden := true) "Posiblemente sea útil desplegar qué significa ser entorno métrico de `{x}`."
+  Hint (hidden := true) "`rw [def_entorno_metrico] at *` aplicará la definición de ser entorno donde se pueda."
+  Branch
+    rw [def_entorno_metrico] at *
   Hint "Como `{hUentx}` nos dice que existe un número con unas ciertas propiedades, podemos elegirlo."
   Hint (hidden := true) "`choose r hr0 hr using {hUentx}` nos dará un número `r` y sus propiedades
   garantizadas por `{hUentx}`."
@@ -92,7 +98,8 @@ Statement union_abiertos_metricos (X : Type) [espacio_metrico X] (F : Set (Set X
   Hint "Como tenemos que demostrar una afirmación construida como conjunción de dos, tendremos
   que separar el objetivo en dos."
   fconstructor
-  · exact hr0
+  · Hint (hidden := true) "El objetivo es exactamente igual a una de las hipótesis."
+    exact hr0
   · Hint "Para demostrar que un conjunto está contenido en otro, hay que tomar un elemento arbitrario."
     intro y
     Hint "Puedes introducir el antecedente del objetivo como hipótesis."
@@ -103,11 +110,11 @@ Statement union_abiertos_metricos (X : Type) [espacio_metrico X] (F : Set (Set X
     use U
     Hint "De nuevo, el objetivo es una afirmación construida con otras dos."
     fconstructor
-    · Hint "El objetivo es exactamente igual a una de tus hipótesis."
+    · Hint (hidden := true) "El objetivo es exactamente igual a una de tus hipótesis."
       exact hUF
     · Hint "Observa que tienes que demostrar que un elemento está en `{U}`, pero tienes una hipótesis
       que te dice que otro conjunto está contenido en '{U}`."
       Hint ( hidden := true ) "`apply  {hr}` te permite cambiar el objetivo a que `{y} ∈ bola {x} {r}`."
       apply hr
-      Hint "Observa que ahora tu objetivo es exactamente igual a una de us hipótesis."
+      Hint "Observa que ahora tu objetivo es exactamente igual a una de tus hipótesis."
       exact hy
