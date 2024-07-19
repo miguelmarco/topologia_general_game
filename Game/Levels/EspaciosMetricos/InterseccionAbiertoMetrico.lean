@@ -27,14 +27,14 @@ NewTactic by_cases
 /--
 La intersección de dos abiertos métricos es un abierto métrico.
 -/
-TheoremDoc interseccion_abiertos_metricos as "interseccion_abiertos_metricos" in "Espacios Metricos"
+TheoremDoc interseccion_abiertos_metricos as "interseccion_abiertos_metricos" in "Espacios Métricos"
 
 
 
 /--
 La intersección de dos abiertos métricos es un abierto métrico.
 -/
-Statement interseccion_abiertos_metricos (X : Type) [espacio_metrico X] (U V : Set X) (hU : abierto_metrico U) (hV : abierto_metrico V) :
+Statement interseccion_abiertos_metricos (U V : Set X) (hU : abierto_metrico U) (hV : abierto_metrico V) :
     abierto_metrico (U ∩ V) := by
   Hint (hidden := true) "Puedes empezar reescribiendo la definición de abierto métrico en el
   objetivo y las hipótesis."

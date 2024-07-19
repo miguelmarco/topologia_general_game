@@ -51,7 +51,7 @@ NewTactic choose exact apply
 /--
 La unión arbitraria de abiertos métricos es un abierto métrico.
 -/
-TheoremDoc union_abiertos_metricos as "union_abiertos_metricos" in "Espacios Metricos"
+TheoremDoc union_abiertos_metricos as "union_abiertos_metricos" in "Espacios Métricos"
 
 /--
 La unión arbitraria de abiertos métricos es un abierto métrico.
