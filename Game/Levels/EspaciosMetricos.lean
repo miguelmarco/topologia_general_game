@@ -1,4 +1,4 @@
-import Game.Levels.EspaciosMetricos.CaracterizacionEntornosMetricos
+import Game.Levels.EspaciosMetricos.FuncionesContinuas
 
 World "EspaciosMetricos"
 Title "Espacios Métricos"

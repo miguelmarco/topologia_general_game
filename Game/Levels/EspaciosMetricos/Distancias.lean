@@ -33,7 +33,11 @@ open espacio_metrico
 
 variable {X  : Type} [espacio_metrico X]
 
-/--`rw [regla] (at h)` usa la afirmación `regla` para reescribir el objetivo, o la hipótesis h-/
+/--`rw [regla] (at h)` usa la afirmación `regla` para reescribir el objetivo, o la hipótesis h.
+
+Se puede reescribir usando la regla en sentido contrario usando `rw [← regla]`. El símbolo `←` se
+puede obtener tecleando `\<-`.
+-/
 TacticDoc rw
 
 /--Intenta resolver el objetivo aplicando reglas de aritmética lineal a las hipótesis.-/
