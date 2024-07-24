@@ -20,7 +20,7 @@ Si una función es $(d_X,d_Y)-contínua$ en todo $x$, se dice símplemente que e
 Vamos a ver una caracterización de la continuidad de funciones entre espacios métricos en términos
 de bolas. Para ello vamos a tener que trabajar con la *imagen de un conjunto por una función*:
 Dada una función $f : X \\to Y$ y un conjunto $S \\subseteq X$, la imagen de $S$ por $f$ es el
-conjunto $\\{ f(x) ∣ x \\in S}$. En Lean esto se denota como `f '' S`. El lema `def_imagen_conjunto`
+conjunto $\\{ f(x) ∣ x \\in S \\}$. En Lean esto se denota como `f '' S`. El lema `def_imagen_conjunto`
 caracteriza esto.
 "
 

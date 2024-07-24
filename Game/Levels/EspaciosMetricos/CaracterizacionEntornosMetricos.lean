@@ -20,7 +20,7 @@ Este nivel es uno de los más avanzados de este mundo, así que no tendrás tant
 Dado un conjunto $E$ de un espacio métrico, y un punto $x$, $E$ es entorno métrico de $x$ si
 y solo si existe un abierto métrico $U$ tal que $x \in U \subseteq E$.
 -/
-TheoremDoc caracterizacion_entorno_metrico as "caracterizacion_entorno_metrico" in "Espacios métricos"
+TheoremDoc caracterizacion_entorno_metrico as "caracterizacion_entorno_metrico" in "Espacios Métricos"
 
 
 /--
