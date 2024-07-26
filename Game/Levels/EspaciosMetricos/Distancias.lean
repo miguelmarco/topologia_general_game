@@ -44,7 +44,15 @@ TacticDoc rw
 TacticDoc linarith
 
 /--`have h : hip` añade una nueva hipótesis h, y un nuevo objetivo para demostrarla.
-`have h := proof` añade la hipótesis cuya validez está garantizada por la prueba dada.-/
+`have h := proof` añade la hipótesis cuya validez está garantizada por la prueba dada.
+
+Puedes crear la prueba "al vuelo" aplicando un teorema a objetos e hipótesis. Es decir,
+si tienes una hipótesis `h : ∀ (a : X), P a → Q a`, un objeto `x : X` y una hipótesis
+`hx : P x`, `have hn := h x hx` añadirá una nueva hipótesis `hn : Q x`. Si no tuvieras
+la hipótesis `hx : P x`, puedes aplicarla dejando pendiente demostrarla:
+`have hn := h x ?_` añadirá la hipótesis `hn : Q x` y por otro lado añadirá un nuevo objetivo
+en el que hay que demostrar `P x`.
+-/
 TacticDoc «have»
 
 
