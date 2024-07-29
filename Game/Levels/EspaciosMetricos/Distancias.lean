@@ -52,6 +52,11 @@ si tienes una hipótesis `h : ∀ (a : X), P a → Q a`, un objeto `x : X` y una
 la hipótesis `hx : P x`, puedes aplicarla dejando pendiente demostrarla:
 `have hn := h x ?_` añadirá la hipótesis `hn : Q x` y por otro lado añadirá un nuevo objetivo
 en el que hay que demostrar `P x`.
+
+Si alguno de los parámetros que se pasan a `have` se puede deducir de los otros, se puede
+omitir poniendo `_` en su lugar. Por ejemplo, si tenemos `h : ∀ x  : X, P x → Q x`,
+`a : X` y `ha : P a`, podemos usar `have h2 := h _ ha` y Lean deducirá automáticamente
+que el hueco ocupado por `_` debe ser `a`.
 -/
 TacticDoc «have»
 
