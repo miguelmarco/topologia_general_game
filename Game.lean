@@ -1,5 +1,4 @@
-import Game.Levels.EspaciosMetricos
-
+import Game.Levels.EspaciosTopologicos
 -- Here's what we'll put on the title screen
 Title "Topología general"
 Introduction
