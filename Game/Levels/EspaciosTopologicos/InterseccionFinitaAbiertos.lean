@@ -5,7 +5,7 @@ open Set
 
 World "EspaciosTopologicos"
 Level 1
-Title "El vacio es cerrado."
+Title "Intersección finita de abiertos."
 
 Introduction "En este nivel vamos a introducir la definición de espacio
 topológico, que imita algunas propiedades de los espacios métricos.

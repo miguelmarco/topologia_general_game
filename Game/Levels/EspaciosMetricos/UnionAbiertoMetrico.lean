@@ -33,6 +33,17 @@ Si tienes una hipótesis `h` que asegura la existencia de un objeto `x` con una 
 
 Si lo que nos asegura la hipótesis es más de una propiedad, se pueden obtener todas ellas; por ejemplo
 `choose x hx1 hx2 hx3 using h` nos daría el objeto `x` y las tres afirmaciones `hx1`, `hx2` y `hx3`.
+
+Si la hipótesis `h` nos asegura que para cada elemento de un cierto tipo,
+existe un objeto con una cierta propiedad (es decir, es del tipo `∀ x : X, ∃ (O : Y), P O`)
+, `choose f hf using h` nos dará una función `f : X → Y` que nos da el objeto
+`O` para cada `x`, y una hipótesis
+`hf : ∀ x : X, P (f x)` que nos asegura que el correspondiente objeto cumple la propiedad.
+
+Si la hipótesis nos asegura la existencia del objeto sólo para un cierto subconjunto `U`
+de `X`,  podemos usar `choose!` en lugar de `choose`, y nos dará igualmente la función `f`,
+pero las hipótesis adicionales sólo nos asegurarán las propiedades para las imágenes
+de los elementos de `U`.
 -/
 TacticDoc choose
 

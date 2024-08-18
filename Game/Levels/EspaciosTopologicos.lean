@@ -1,5 +1,4 @@
-import Game.Levels.EspaciosTopologicos.InterseccionFinitaAbiertos
-
+import Game.Levels.EspaciosTopologicos.Entornos
 World "EspaciosTopologicos"
 Title "Espacios Topológicos"
 
