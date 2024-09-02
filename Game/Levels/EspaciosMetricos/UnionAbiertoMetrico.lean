@@ -58,11 +58,14 @@ Si tienes un resultado `h : P → Q` y tu objetivo es `Q`, `apply h` cambia el o
 TacticDoc apply
 
 NewTactic choose exact apply
+NewHiddenTactic choose! «using»
 
 /--
 La unión arbitraria de abiertos métricos es un abierto métrico.
 -/
 TheoremDoc union_abiertos_metricos as "union_abiertos_metricos" in "Espacios Métricos"
+
+OnlyTactic rw intro choose choose! «have» «using» use fconstructor exact apply trivial
 
 /--
 La unión arbitraria de abiertos métricos es un abierto métrico.

@@ -37,8 +37,10 @@ NewTheorem def_entorno
 
 /--
 Dados un espacio topológico $X$, un punto $x ∈ X$ y un conjunto $E ⊆ X$,
-se dice que *$E$ es un entorno de $x$ si existe un abierto $U$ tal que
+se dice que *$E$ es un entorno de $x$* si existe un abierto $U$ tal que
 $x ∈ U$ y $U ⊆ E$.
+
+En Lean, esto se escribe como `entorno x E`.
 -/
 DefinitionDoc entorno as "entorno"
 
@@ -53,7 +55,23 @@ con `let g := { n : ℕ | n > 5}`.
 -/
 TacticDoc «let»
 
-NewTactic «let»
+/--
+Para probar que dos conjuntos son iguales, hay que ver que tomar un elementro arbitrario
+y ver que está en uno si y solo si está en el otro.
+
+Análogamente, para ver que dos funciones son iguales, hay que tomar un elemento arbitrario
+y ver que la imagen de ese elemento por la primera función coincide con laimagen por la segunda.
+
+Esto se llama *principio de extensionalidad*, y la forma de usarlo en Lean es mediante la
+táctica `ext`.
+
+Si tu objetivo se puede demostrar mediante extensionalidad (como por ejemplo, una igualdad
+de conjuntos o funciones), la táctica `ext x` introducirá un elemento arbitrario
+y cambiará el objetivo a demostrar la condición de extensionalidad correspondiente.
+-/
+TacticDoc ext
+
+NewTactic «let» ext
 
 /--
 En un espacio topológico, un conjunto es abierto si y solo si

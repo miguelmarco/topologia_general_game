@@ -67,7 +67,7 @@ NewTactic induction left right rfl
 TheoremTab "Inducción"
 
 /--
-`Set.Finite.dinduction_on` es un principio de inducción que asegura que permite demostrar que los
+El principio de inducción `Set.Finite.dinduction_on` permite demostrar que los
 conjuntos finitos cumplen una cierta propiedad, demostrando que la cumple el conjunto vacio, y que
 si la cumple un conjunto finito, al añadirle un elemento también la cumple.
 
@@ -77,7 +77,7 @@ demostrar `P S` donde `P` es una cierta propiedad, la táctica
 demostrar `P ∅`, y en el otro tendremos que demostrar `P (insert a s)` donde `s` es un conjunto
 finito, `a` un elemento que no está en `s`, y se tiene la hipótesis de inducción `h : P s`.
 -/
-TheoremDoc Set.Finite.dinduction_on as "Set.Finite.dindution_on" in "Inducción"
+TheoremDoc Set.Finite.dinduction_on as "Set.Finite.dinduction_on" in "Inducción"
 
 NewTheorem Set.Finite.dinduction_on
 

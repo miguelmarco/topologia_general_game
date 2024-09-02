@@ -20,6 +20,28 @@ d2: $d(x,y) = 0 → x = y ∀ x,y ∈ X $
 d3: $d(x,y) = d(y,x) ∀ x,y ∈ X$
 
 d4: $d(x,z) ≤ d(x,y) + d(y,z) ∀ x,y,z ∈ X$
+
+
+Para demostrar que la distancia entre dos puntos es no negativa, necesitaremos añadir
+un resultado a nuestra lista de hipótesis. Para ello, usaremos la táctica `have`. Esta
+táctica se puede usar de dos maneras distintas: si ya sabemos cómo construir la prueba
+del resultado que queremos añadir, (por ejemplo, aplicando el teorema `T` al caso `C`),
+usaremos `have haux := T C`.
+
+Si por el contrario no tenemos un teorema que nos produzca la demostración que queremos,
+podemos enunciar el resultado (en nuestro ejemplo, será por ejemplo `P x` para indicar
+que el objeto `x` cumple la propiedad `P`), podemos usar `have haux : P x` (fíjate en la
+diferencia con el caso anterior) y se nos establecerá un nuevo objetivo en el que hay que
+demostrar `P x`. Una vez demostrado este objetivo, podemos continuar con nuestro objetivo
+inicial, pero ya teniendo disponible la hipótesis `haux : P x`.
+
+También tendrás que usar la táctica `rw` que sirve para usar una igualdad (o equivalencia)
+que ya conocemos para reescribir el objetivo o una hipótesis. Por ejemplo, si tienes una
+hipótesis que dice `h : a = b` y tu objetivo es `P a`. Puedes usar la táctica `rw [h]` para
+que el objetivo pase a ser `P b`. Si quieres hacer la reescritura en sentido contrario (en
+nuestro ejemplo, cambiar `b` por `a`), la sintaxis es `rw [← h]` (la flecha a la izquierda se
+introduce con `\<-`). Si en lugar de hacer el cambio en el objetivo, quieres hacerlo en una
+hipótesis `h2`, añade `at h2` después de la táctica.
 "
 
 class espacio_metrico (X : Type) where
