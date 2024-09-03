@@ -40,7 +40,7 @@ que ya conocemos para reescribir el objetivo o una hipótesis. Por ejemplo, si t
 hipótesis que dice `h : a = b` y tu objetivo es `P a`. Puedes usar la táctica `rw [h]` para
 que el objetivo pase a ser `P b`. Si quieres hacer la reescritura en sentido contrario (en
 nuestro ejemplo, cambiar `b` por `a`), la sintaxis es `rw [← h]` (la flecha a la izquierda se
-introduce con `\<-`). Si en lugar de hacer el cambio en el objetivo, quieres hacerlo en una
+introduce con `\\<-`). Si en lugar de hacer el cambio en el objetivo, quieres hacerlo en una
 hipótesis `h2`, añade `at h2` después de la táctica.
 "
 
