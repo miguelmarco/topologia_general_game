@@ -1,4 +1,4 @@
-import Game.Levels.EspaciosTopologicos.Entornos
+import Game.Levels.EspaciosTopologicos.ExistenEntornos
 World "EspaciosTopologicos"
 Title "Espacios Topológicos"
 
