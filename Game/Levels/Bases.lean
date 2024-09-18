@@ -1,4 +1,4 @@
-import Game.Levels.Bases.CaracterizacionBases
+import Game.Levels.Bases.UnionBaseTotal
 World "Bases"
 Title "Bases"
 
