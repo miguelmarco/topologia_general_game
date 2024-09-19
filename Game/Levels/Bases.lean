@@ -1,4 +1,4 @@
-import Game.Levels.Bases.UnionBaseTotal
+import Game.Levels.Bases.InterseccionElementosBase
 World "Bases"
 Title "Bases"
 
