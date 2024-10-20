@@ -7,7 +7,8 @@ World "Bases"
 Level 4
 Title "Cuándo una familia de abiertos es una base."
 
-Introduction "Ahora vamos a ver un criterio para determinar que una familia de abiertos es una base.
+Introduction "Ahora vamos a ver un criterio para determinar que una familia de abiertos es una base,
+comparándola con otra base.
 "
 
 variable {X : Type} [espacio_topologico X] (B : Set (Set X)) (hB : base B)
