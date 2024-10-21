@@ -1,4 +1,4 @@
-import Game.Levels.Bases.BasesEntornosBases
+import Game.Levels.Bases.BasesEntornosBase
 World "Bases"
 Title "Bases"
 
