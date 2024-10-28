@@ -25,6 +25,18 @@ existe un $B ∈ 𝓑$ tal que $N ⊆ B$
 -/
 def base_de_entornos (x : X) (ℬ : Set (Set X)) := (∀ B ∈ ℬ, entorno x B) ∧ ∀ (N : Set X), entorno x N → ∃ B ∈ ℬ, B ⊆ N
 
+theorem def_base_de_entornos (x : X) (ℬ : Set (Set X)) :
+    base_de_entornos x ℬ ↔ (∀ B ∈ ℬ, entorno x B) ∧ ∀ (N : Set X), entorno x N → ∃ B ∈ ℬ, B ⊆ N :=  by
+  rfl
+
+/--
+Dado un punto `x` y una familia de conjuntos `ℬ`, `def_base_de_entornos x ℬ` dice que
+`base_de_entornos x X ↔ (∀ B ∈ ℬ, entorno x B) ∧ ∀ (N : Set X), entorno x N → ∃ B ∈ ℬ, B ⊆ N`
+-/
+TheoremDoc def_base_de_entornos as "def_base_de_entornos" in "lemas-definición"
+
+NewTheorem def_base_de_entornos
+
 /--
 En un espacio topológico $(X,𝓣)$, una *base de entornos* de un punto *x*
 es una familia $ℬ^x$ de entornos de $x$ tal que para todo $N$ entorno de $x$,

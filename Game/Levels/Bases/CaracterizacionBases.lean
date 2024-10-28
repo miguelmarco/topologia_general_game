@@ -35,6 +35,17 @@ NewDefinition base
 
 TheoremTab  "Bases"
 
+theorem def_base (B : Set (Set X)) : base B ↔  B ⊆ abiertos ∧ ∀ U ∈ abiertos, ∃ F ⊆ B, U = ⋃₀ F := by rfl
+
+
+/--
+Dada una familia de conjuntos `B`, `def_base B` dice que `base B ↔  B ⊆ abiertos ∧ ∀ U ∈ abiertos, ∃ F ⊆ B, U = ⋃₀ F`.
+-/
+TheoremDoc def_base as "def_base" in "lemas-definición"
+
+NewTheorem def_base
+
+
 /--
 Una familia `F` de subconjuntos abiertos  de un espacio topológico `X` es una base
 si y sólo si para todo abierto `U` y para todo punto `x ∈ U`,
