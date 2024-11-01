@@ -25,7 +25,7 @@ variable {X : Type} [espacio_topologico X]
 Dado un punto $x$ y una base de entornos $ℬ$, una familia $𝒟$ de entornos de $x$ es base
 de entornos de $x$ si y solo si $∀ B ∈ ℬ, ∃ D ∈ 𝒟, D ⊆ B$.
 -/
-TheoremDoc familia_entornos_base_sii as "familia_entornos_base_sii" in "Espacios Topológicos"
+TheoremDoc familia_entornos_base_sii as "familia_entornos_base_sii" in "Bases"
 
 Statement familia_entornos_base_sii  (x : X) (ℬ 𝒟 : Set (Set X)) (hℬ : base_de_entornos x ℬ) (h𝒟 : ∀ D ∈  𝒟, entorno x D) :
     base_de_entornos x 𝒟 ↔ ∀ B ∈ ℬ, ∃ D ∈ 𝒟, D ⊆ B := by

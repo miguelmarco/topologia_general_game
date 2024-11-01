@@ -51,7 +51,7 @@ NewDefinition base_de_entornos
 Si para cada punto $x ∈ X$ tenemos una base de entornos abiertos $ℬ x$,
 entonces la unión de todas ellas es una base de la topología.
 -/
-TheoremDoc base_de_base_de_entornos_abiertos as "base_de_base_de_entornos_abiertos" in "Espacios Topológicos"
+TheoremDoc base_de_base_de_entornos_abiertos as "base_de_base_de_entornos_abiertos" in "Bases"
 
 Statement base_de_base_de_entornos_abiertos  (ℬ : X → Set (Set X)) (hab : ∀ (x : X), ℬ x ⊆ abiertos) (hent : ∀ x, base_de_entornos x (ℬ x)) :
     base (⋃₀ {(ℬ x) | x : X}) := by

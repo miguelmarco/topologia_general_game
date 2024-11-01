@@ -17,7 +17,7 @@ variable {X : Type} [espacio_topologico X]
 /--
 La unión de una base es el total.
 -/
-TheoremDoc union_base_total as "union_base_total" in "Espacios Topologicos"
+TheoremDoc union_base_total as "union_base_total" in "Bases"
 
 /--
 La unión de una base es el total.
