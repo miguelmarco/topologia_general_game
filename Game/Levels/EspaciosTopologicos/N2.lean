@@ -11,7 +11,7 @@ Las familias de los entornos de cada punto en un espacio topológico cumplen `N2
 -/
 TheoremDoc entornos_N2 as "entornos_N2" in "Espacios Topológicos"
 
-Statement entornos_N2 (X : Type) [espacio_topologico X] : ∀ (x : X), ∀ N , entorno x N →  x ∈ N := by
+Statement entornos_N2 {X : Type} [espacio_topologico X] : ∀ (x : X), ∀ N , entorno x N →  x ∈ N := by
   Hint (hidden := true) "Como de costumbre, puedes empezar
   tomando un `x` genérico con `intro`."
   intro x N h

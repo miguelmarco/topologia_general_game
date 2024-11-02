@@ -11,7 +11,7 @@ Las familias de los entornos de cada punto en un espacio topológico cumplen `N3
 -/
 TheoremDoc entornos_N3 as "entornos_N3" in "Espacios Topológicos"
 
-Statement entornos_N3 (X : Type) [espacio_topologico X] :∀ (x : X), ∀ N1  N2, entorno x N1 → entorno x N2 →  entorno x (N1 ∩ N2):= by
+Statement entornos_N3 {X : Type} [espacio_topologico X] :∀ (x : X), ∀ N1  N2, entorno x N1 → entorno x N2 →  entorno x (N1 ∩ N2):= by
   Hint (hidden := true) "Como de costumbre, habrá que introducir los
   elementos arbitrarios y sus hipótesis con `intro`."
   intro x N1 N2 hN1 hN2

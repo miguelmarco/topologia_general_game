@@ -69,7 +69,7 @@ Las familias de los entornos de cada punto en un espacio topológico cumplen `N1
 -/
 TheoremDoc entornos_N1 as "entornos_N1" in "Espacios Topológicos"
 
-Statement entornos_N1 (X : Type) [espacio_topologico X] : ∀ x : X, ∃ N, entorno x N := by
+Statement entornos_N1 {X : Type} [espacio_topologico X] : ∀ x : X, ∃ N, entorno x N := by
   Hint (hidden := true) "Puesto que el objetivo es una afirmación universal,
   podemos tomar un punto genérico con `intro x`."
   intro x
