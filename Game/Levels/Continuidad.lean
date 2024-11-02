@@ -1,4 +1,4 @@
-import Game.Levels.Continuidad.CaracterizacionContinuaCerrados
+import Game.Levels.Continuidad.ContinuaEn
 World "Continuidad"
 Title "Continuidad"
 
