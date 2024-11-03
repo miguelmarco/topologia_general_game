@@ -1,4 +1,4 @@
-import Game.Levels.Continuidad.CorolarioBaseEntornos
+import Game.Levels.Continuidad.IdentidadHomeo
 World "Continuidad"
 Title "Continuidad"
 
