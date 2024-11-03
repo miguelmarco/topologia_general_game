@@ -1,4 +1,4 @@
-import Game.Levels.Continuidad.IdentidadHomeo
+import Game.Levels.Continuidad.ComposicionHomeo
 World "Continuidad"
 Title "Continuidad"
 
