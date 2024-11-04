@@ -9,6 +9,13 @@ Title "Composición de homeomorfismos."
 Introduction "La composición de homeomorfismos es un homeomorfismo.
 "
 
+@[simp]
+theorem cancela_inver {X Y : Type} {f : X → Y} {g : Y → X} {x  : X} (h : g ∘ f = id) :
+    g (f x) = x := by
+  change (g ∘ f) x = x
+  rw [h]
+  rfl
+
 variable {X Y Z: Type} [espacio_topologico X] [espacio_topologico Y] [espacio_topologico Z] (f : X → Y)
 
 
@@ -50,35 +57,23 @@ Statement homeomorfismo_composicion (g : Y → Z) (hf : homeomorfismo f) (hg : h
     Hint (hidden := true) "Volvemos a tener que separar el objetivo en varios
     con `fconstructor`."
     fconstructor
-    · Hint "Aquí vamos a necesitar poner el objetivo de una forma concreta,
-      y para ello necesitamos un resultado auxiliar.
+    · Hint "Para demostrar la igualdad entre dos aplicaciones, podemos aplicar el *principio
+      de extensionalodad*, que nos dice que dos aplicaciones son iguales si y solo si la
+      imagen de cualquier elemento coincide. Para ello, podemos usar la táctica `ext`,
+      que tomará un elemento cualquiera y tendremos que demostrar que ambas imágenes coinciden.
 
-      Teclea `have haux : ({fi} ∘ {gi}) ∘ {g} ∘ {f} = {fi} ∘ ({gi} ∘ {g}) ∘ {f}`"
-      have haux : (fi ∘ gi) ∘ g ∘ f = fi ∘ (gi ∘ g) ∘ f
-      · Hint (hidden := true) "Esto es cierto por definición, así que se
-        prueba con `rfl`."
-        rfl
-      Hint (hidden := true) "Ahora podemos usar `{haux}` para reescribir
-      el objetivo como nos conviene."
-      rw [haux]
-      Hint (hidden := true) "Ahora puedes usar `{hgig}` para reescribir el objetivo."
-      rw [hgig]
-      Hint (hidden := true) "Prueba a simplificar."
-      simp only [id_comp]
-      exact hfif
-    · Hint (hidden := true) "Igual que antes, necesitamos poner el objetivo
-      de una forma concreta:
-
-      `have haux : ({g} ∘ {f}) ∘ {fi} ∘ {gi} = {g} ∘ ({f} ∘ {fi}) ∘ {gi}`
-      "
-      have haux :  (g ∘ f) ∘ fi ∘ gi = g ∘ (f ∘ fi) ∘ gi
-      · Hint (hidden := true) "También es cierto por definición. Se prueba
-        con `rfl`."
-        rfl
-      Hint (hidden := true) "Puedes usar `{haux}` para reescribir."
-      rw [haux]
-      Hint (hidden := true) "Puedes usar `{hffi}` para reescribir."
-      rw [hffi]
-      Hint (hidden := true) "Simplifica."
-      simp only [id_comp]
-      exact hggi
+      Teclea `ext x`."
+      ext x
+      Hint (hidden := true) "Ahora podemos simplificar el objetivo con `simp`."
+      simp only [comp_apply, id_eq]
+      Hint (hidden := true) "Podemos seguir simplificando más si usamos `{hgig}`: teclea
+      `simp [{hgig}]`"
+      simp only [hgig, cancela_inver]
+      Hint (hidden := true) "Y podemos seguir simplificando con `{hfif}`."
+      simp only [hfif, cancela_inver]
+    · Hint (hidden := true) "Igual que antes, aplicamos la extensionalidad a un elemento
+      cualquiera con `ext y`. "
+      ext y
+      Hint (hidden := true) "Como antes, puedes simplificar la expresión. Puedes hacer varias
+      simplificaciones de golpe con `simp [{hffi},{hggi}]`."
+      simp [hffi,hggi]
