@@ -1,0 +1,141 @@
+import Game.Levels.Continuidad.CaracterizacionHomeoContinuaAbierta
+open espacio_topologico Set Function
+
+
+World "Continuidad"
+Level 11
+Title "Otra caracterización de homeomorfismos."
+
+Introduction "Una biyección es un homeomorfismo si y sólo es continua y cerrada.
+"
+
+variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
+
+def cerrada := ∀ U ∈ cerrados, f '' U ∈ cerrados
+
+/--
+Una aplicación `f : X → Y` entre espacios métricos es *cerrada* si la imagen
+de todo cerrado es cerrado.
+-/
+DefinitionDoc cerrada as "cerrada"
+
+NewDefinition cerrada
+
+/--
+Una aplicación entre espacios topológicos que tenga inversa,
+es un homeomorfismo si y solo si es continua y cerrada.
+-/
+TheoremDoc homeomorfismo_sii_continua_cerrada as "homeomorfismo_sii_continua_cerrada" in "Continuidad"
+
+Statement homeomorfismo_sii_continua_cerrada (fi : Y → X) (hffi : f ∘ fi = id) (hfif : fi ∘ f = id):
+    homeomorfismo f ↔  continua f ∧ cerrada f:= by
+  Hint (hidden := true) "Separa en dos objetivos con `fconstructor`."
+  fconstructor
+  · Hint (hidden := true) "Introduce el antecedente con `intro`."
+    intro h
+    Hint (hidden := true) "Puedes obtener varias hipótesis de `{h}` con `choose` o `cases'`."
+    choose hfcont g hgcont hgf hfg using h
+    Hint (hidden := true) "Separa en varios objetivos con `fconstructor`."
+    fconstructor
+    · Hint (hidden := true) "Toma un abierto arbitrario con `intro`."
+      intro U hU
+      Hint (hidden := true) "Puedes aplicar que `{f}` es continua."
+      apply hfcont
+      exact hU
+    · Hint (hidden := true) "Introduce un cerrado arbitrario con `intro`."
+      intro U hU
+      Hint (hidden := true) "Ahora no tenemos ninguna hipótesis que nos diga que la imagen de un
+      cerrado es cerrado. Así que necesitamos poner el objetivo como una preimagen.
+
+      `have haux : {f} '' {U} = {g} ⁻¹ {U}`"
+      have haux : f '' U = g ⁻¹' U
+      · Hint (hidden := true) "Para ver la igualdad de dos conjuntos, hay que aplicar el principio
+        de extensionalidad, con `ext`."
+        ext y
+        Hint (hidden := true) "Separa el objetivo en dos con `fconstructor`."
+        fconstructor
+        · Hint (hidden := true) "Introduce el antecedente con `intro`."
+          intro hy
+          Hint (hidden := true) "Como `{hy}` nos asegura que existen preimágenes de `{y}`,
+          puedes elegir una de ellas (y sus hipótesis) con `choose`."
+          choose x hxU hxy using hy
+          Hint (hidden := true) "Ahora puedes usar `{hxy}` para reescribir el objetivo (de derecha a izquierda)."
+          rw [← hxy]
+          Hint (hidden := true) "Puedes simplificar la expresión gracias a `{hgf}`."
+          simp only [mem_preimage, hgf, cancela_inver]
+          exact hxU
+        · Hint (hidden := true) "Introduce el antecedente con `intro`."
+          intro hy
+          Hint (hidden := true) "Ahora hay que ver que `{y}` tiene una preimagen en `{U}`.
+          ¿Se te ocurre cual puedes usar?"
+          Hint (hidden := true) "`use {g} {y}`"
+          use g y
+          fconstructor
+          · exact hy
+          · Hint (hidden := true) "Puedes simplificar gracias a `{hfg}`."
+            simp only [hfg, cancela_inver]
+      Hint (hidden := true) "Ahora podemos usar `{haux}` para reescribir el objetivo."
+      rw [haux]
+      Hint (hidden := true) "Recuerda que un teorema te dice que una aplicación es continua si y
+      solo si la preimagen de un cerrado es cerrado, prueba a usarlo para reescribir `{hgcont}`."
+      rw [continua_sii_cerrados] at hgcont
+      Hint (hidden := true) "Y ahora ya puedes aplicar `{hgcont}`."
+      apply hgcont
+      exact hU
+  · Hint (hidden := true) "Introduce el antecedente con `intro`."
+    intro h
+    Hint (hidden := true) "Puedes obtener dos hipótesis a pertir de `{h}` mediante `choose` o `cases'`."
+    choose hfcont hfab using h
+    Hint (hidden := true) "Separa en varios objetivos con `fconstructor`."
+    fconstructor
+    · exact hfcont
+    · Hint (hidden := true) "Ahora hay que demostrar que existe una cierta `g` inversa de `f`. ¿Cual puedes usar?"
+      use fi
+      Hint (hidden := true) "Separa en varios objetivos con `fconstructor`."
+      fconstructor
+      · Hint (hidden := true) "Será útil reescribir el objetivo en términos de cerrados. ¿Recuerdas
+        qué teorema te aseguraba que se podía hacer?"
+        rw [continua_sii_cerrados]
+        Hint (hidden := true) "Toma un cerrado arbitrario con `intro`."
+        intro U hU
+        Hint (hidden := true) "No sabemos nada sobre como trata `{fi}` a los cerrados,
+        así que tendremos que expresar `{fi} ⁻¹' {U}` en términos de `{f}`. Para ello
+        podemos usar `have` y enunciar una afirmación que tendremos que probar. ¿Qué
+        afirmación crees que te será útil?"
+        Hint (hidden := true) "`have haux : {fi} ⁻¹' {U} = {f} '' {U}`"
+        have haux : fi ⁻¹' U = f '' U
+        · Hint (hidden := true) "Para probar la igualdad entre dos conjuntos, toma un elemento
+          arbitrario con `ext`."
+          ext y
+          Hint (hidden := true) "Separa en dos objetivos con `fconstructor`."
+          fconstructor
+          · Hint (hidden := true) "Introduce el antecedente con `intro`."
+            intro hy
+            Hint (hidden := true) "Tenemos que demostrar que hay alguna preimagen de `{y}`.
+            ¿Cómo puedes encontrarla?"
+            use fi y
+            Hint (hidden := true) "Separa en dos objetivos con `fconstructor`."
+            fconstructor
+            · Hint (hidden := true) "Una de las hipótesis dice exactamente lo que pide el objetivo."
+              exact hy
+            · Hint (hidden := true) "Prueba a simplificar el objetivo con `{hffi}`."
+              simp only [hffi, cancela_inver]
+          · Hint (hidden := true) "Introduce el antecedente con `intro`."
+            intro hy
+            Hint (hidden := true) "`{hy}` te asegura que existe alguna preimagen de `{y}`;
+            puedes elegir una (y sus hipótesis) con `choose`."
+            choose x hxU hxy using hy
+            Hint (hidden := true) "Puedes usar `{hxy}` para reescribir el objetivo (de derecha a izquierda)."
+            rw [← hxy]
+            Hint (hidden := true) "Prueba a simplificar el objetivo."
+            simp only [mem_preimage, hfif, cancela_inver]
+            exact hxU
+        Hint (hidden := true) "Ahorda, gracias a `{haux}`, podemos reescribir el objetivo."
+        rw [haux]
+        Hint (hidden := true) "Observa que puedes aplicar una hipótesis que te dice que
+        la imagen de un cerrado es cerrado."
+        apply hfab
+        exact hU
+      fconstructor
+      · exact hfif
+      · exact hffi
