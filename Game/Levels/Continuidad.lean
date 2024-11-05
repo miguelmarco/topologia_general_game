@@ -1,4 +1,4 @@
-import Game.Levels.Continuidad.CaracterizacionHomeoContinuaCerrada
+import Game.Levels.Continuidad.CaracterizacionAbiertaEntorno
 World "Continuidad"
 Title "Continuidad"
 
