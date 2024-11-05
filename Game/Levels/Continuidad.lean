@@ -1,4 +1,4 @@
-import Game.Levels.Continuidad.CaracterizacionAbiertaEntorno
+import Game.Levels.Continuidad.ContinuaAbiertaBaseEntorno
 World "Continuidad"
 Title "Continuidad"
 
