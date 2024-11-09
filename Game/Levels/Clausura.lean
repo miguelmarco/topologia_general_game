@@ -1,4 +1,4 @@
-import Game.Levels.Clausura.CaracterizacionClausuraEntornos
+import Game.Levels.Clausura.ClausuraCerrado
 World "Clausura"
 Title "Clausura, interior, frontera"
 
