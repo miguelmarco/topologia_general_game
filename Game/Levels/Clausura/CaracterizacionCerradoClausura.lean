@@ -13,11 +13,11 @@ variable {X : Type} [espacio_topologico X] (A : Set X)
 
 
 /--
-Con conjunto `A`, es cerrado si y sólo si `A = clausura A`
+Con conjunto `A`, es cerrado si y sólo si `clausura A = A`
 -/
 TheoremDoc caracterizacion_cerrado_clausura as "caracterizacion_cerrado_clausura" in "Clausura"
 
-Statement caracterizacion_cerrado_clausura : A ∈ cerrados ↔ A = clausura A := by
+Statement caracterizacion_cerrado_clausura : A ∈ cerrados ↔  clausura A = A := by
   Hint (hidden := true) "Separa el objetivo en dos con `fconstructor`."
   fconstructor
   · Hint (hidden := true) "Introduce el antecedente con `intro`."
@@ -27,8 +27,6 @@ Statement caracterizacion_cerrado_clausura : A ∈ cerrados ↔ A = clausura A :
     ext y
     Hint (hidden := true) "Separa el objetivo en dos con `fconstructor`."
     fconstructor
-    · Hint (hidden := true) "Puedes aplicar directamente un resultado previo."
-      apply clausura_contiene
     · Hint (hidden := true) "Introduce el antecedente con `intro`."
       intro hy
       Hint (hidden := true) "Puede ser útil reescribir la definición de clausura en `{hy}`."
@@ -41,9 +39,11 @@ Statement caracterizacion_cerrado_clausura : A ∈ cerrados ↔ A = clausura A :
       fconstructor
       · exact h
       · trivial
+    · Hint (hidden := true) "Puedes aplicar directamente un resultado previo."
+      apply clausura_contiene
   · Hint (hidden := true) "Introduce el antecedente con `intro`."
     intro h
     Hint (hidden := true) "Puedes usar `{h}` para reescribir el objetivo."
-    rw [h]
+    rw [← h]
     Hint (hidden := true) "Un resultado previo te asegura justo lo que quieres."
     apply clausura_cerrado
