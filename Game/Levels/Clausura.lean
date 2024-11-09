@@ -1,4 +1,4 @@
-import Game.Levels.Clausura.ClausuraContenidaEnCerrado
+import Game.Levels.Clausura.ClausuraContiene
 World "Clausura"
 Title "Clausura, interior, frontera"
 
