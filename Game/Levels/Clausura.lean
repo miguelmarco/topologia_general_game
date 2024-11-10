@@ -1,4 +1,4 @@
-import Game.Levels.Clausura.ClausuraIdempotente
+import Game.Levels.Clausura.ClausuraUnion
 Title "Clausura, interior, frontera"
 
 Introduction "
