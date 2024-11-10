@@ -2,3 +2,5 @@ build/
 lake-packages/
 lakefile.olean
 **/.DS_Store
+.devcontainer
+*.gitignore
