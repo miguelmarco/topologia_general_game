@@ -1,4 +1,4 @@
-import Game.Levels.Clausura.ClausuraUnion
+import Game.Levels.Clausura.ClausuraInterseccion
 Title "Clausura, interior, frontera"
 
 Introduction "
