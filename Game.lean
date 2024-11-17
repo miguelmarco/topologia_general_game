@@ -1,4 +1,4 @@
-import Game.Levels.Clausura
+import Game.Levels.Interior
 -- Here's what we'll put on the title screen
 Title "Topología general"
 Introduction
