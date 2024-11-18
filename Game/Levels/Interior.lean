@@ -1,4 +1,4 @@
-import Game.Levels.Interior.CaracterizacionInteriorEntorno
+import Game.Levels.Interior.InteriorContieneAbierto
 Title "Interior"
 
 Introduction "
