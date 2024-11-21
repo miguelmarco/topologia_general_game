@@ -30,7 +30,7 @@ theorem def_denso : denso A ↔ clausura A = univ := by
 /--
 TheoremDoc
 -/
-TheoremDoc topo.def_denso as "def_denso" in "lemas_definición"
+TheoremDoc topo.def_denso as "def_denso" in "lemas-definición"
 
 NewTheorem topo.def_denso
 
