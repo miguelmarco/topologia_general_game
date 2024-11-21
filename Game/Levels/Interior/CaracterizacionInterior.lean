@@ -10,13 +10,12 @@ Veamos qué cumplen los puntos del interior.
 "
 
 
-open espacio_topologico Set Function
-
-
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X]
 
 
-def interior' (A : Set X) := ⋃₀ { U ∈ abiertos | U ⊆ A}
+def interior (A : Set X) := ⋃₀ { U ∈ abiertos | U ⊆ A}
 
 /--
 Si $A$ es un subconjunto de un espacio topológico, el **interior**
@@ -24,33 +23,33 @@ de $A$ ,es la unión de los abiertos contenidos en $A$.
 
 Se denota en Lean como `interior' A`.
 -/
-DefinitionDoc interior' as "interior"
+DefinitionDoc interior as "interior"
 
 TheoremTab "Interior"
 
 
 /--
 Si `A` es un conjunto en un espacio topológico, `def_interior A` dice
-que `interior' A = ⋃₀ { U ∈ abiertos | U ⊆ A}`.
+que `interior A = ⋃₀ { U ∈ abiertos | U ⊆ A}`.
 -/
-TheoremDoc def_interior as "def_interior" in "lemas-definición"
+TheoremDoc topo.def_interior as "def_interior" in "lemas-definición"
 
-theorem def_interior (A : Set X) : interior' A = ⋃₀ { U ∈ abiertos | U ⊆ A} := by
+theorem def_interior (A : Set X) : interior A = ⋃₀ { U ∈ abiertos | U ⊆ A} := by
   rfl
 
-NewDefinition interior'
+NewDefinition interior
 
 
-NewTheorem def_interior
+NewTheorem topo.def_interior
 
 
 /--
 Un punto `x` está en el interior de `A` si y sólo si existe un abierto
 `U` tal que `x ∈ U` y  `U ⊆ A`.
 -/
-TheoremDoc caracterizacion_interior as "caracterizacion_interior" in "Interior"
+TheoremDoc topo.caracterizacion_interior as "caracterizacion_interior" in "Interior"
 
-Statement caracterizacion_interior (A : Set X) (x : X) : x ∈ interior' A ↔ ∃ U ∈ abiertos, x ∈ U ∧ U ⊆ A := by
+Statement caracterizacion_interior (A : Set X) (x : X) : x ∈ interior A ↔ ∃ U ∈ abiertos, x ∈ U ∧ U ⊆ A := by
   Hint (hidden := true) "Puedes separar el objetivo en dos con `fconstructor`."
   fconstructor
   · Hint (hidden := true) "Puedes introducir el antecedente con `intro`."
@@ -82,3 +81,5 @@ Statement caracterizacion_interior (A : Set X) (x : X) : x ∈ interior' A ↔ �
       · exact hUab
       · exact hUA
     · exact hxU
+
+end topo

@@ -1,5 +1,4 @@
 import Game.Levels.Clausura.ClausuraCerrado
-open espacio_topologico Set Function
 
 World "Clausura"
 Level 4
@@ -10,6 +9,8 @@ Introduction "Otro resultado fácil: si un cerrado contiene a un conjunto,
 también contiene a su clausura.
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X] (A : Set X)
 
 
@@ -17,7 +18,7 @@ variable {X : Type} [espacio_topologico X] (A : Set X)
 Si un cerrado `C` contiene a un conjunto `A`, también contiene
 a su clausura.
 -/
-TheoremDoc clausura_contenida_cerrado as "clausura_contenida_cerrado" in "Clausura"
+TheoremDoc topo.clausura_contenida_cerrado as "clausura_contenida_cerrado" in "Clausura"
 
 Statement clausura_contenida_cerrado (C : Set X) (hC : C ∈ cerrados ) (hA : A ⊆ C) : clausura A ⊆ C := by
   Hint (hidden := true) "Para ver que un conjunto está contenido en otro,
@@ -34,3 +35,5 @@ Statement clausura_contenida_cerrado (C : Set X) (hC : C ∈ cerrados ) (hA : A 
   fconstructor
   · exact hC
   · exact hA
+
+end topo

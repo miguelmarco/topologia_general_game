@@ -1,6 +1,5 @@
 import Game.Levels.Bases.BasesEntornosBase
 
-open espacio_topologico Set
 
 
 World "Bases"
@@ -14,6 +13,8 @@ de otra base de entornos $ℬ$ dada.
 
 Recuerda que puedes introducir $ℬ$ y $𝒟$ con `\\McB` y `\\McD` respectivamente.
 "
+namespace topo
+open topo espacio_topologico Set
 
 variable {X : Type} [espacio_topologico X]
 
@@ -25,7 +26,7 @@ variable {X : Type} [espacio_topologico X]
 Dado un punto $x$ y una base de entornos $ℬ$, una familia $𝒟$ de entornos de $x$ es base
 de entornos de $x$ si y solo si $∀ B ∈ ℬ, ∃ D ∈ 𝒟, D ⊆ B$.
 -/
-TheoremDoc familia_entornos_base_sii as "familia_entornos_base_sii" in "Bases"
+TheoremDoc topo.familia_entornos_base_sii as "familia_entornos_base_sii" in "Bases"
 
 Statement familia_entornos_base_sii  (x : X) (ℬ 𝒟 : Set (Set X)) (hℬ : base_de_entornos x ℬ) (h𝒟 : ∀ D ∈  𝒟, entorno x D) :
     base_de_entornos x 𝒟 ↔ ∀ B ∈ ℬ, ∃ D ∈ 𝒟, D ⊆ B := by
@@ -105,3 +106,5 @@ Statement familia_entornos_base_sii  (x : X) (ℬ 𝒟 : Set (Set X)) (hℬ : ba
         apply hD2
         Hint (hidden := true) "Y ahora el objetivo es exactamente una de las hipótesis."
         exact ha
+
+end topo

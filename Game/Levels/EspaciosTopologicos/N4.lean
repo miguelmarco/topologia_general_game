@@ -1,15 +1,17 @@
 import Game.Levels.EspaciosTopologicos.N3
-open Set espacio_topologico
+
 
 World "EspaciosTopologicos"
 Level 11
 Title "Propiedades de entornos 4"
 
+namespace topo
+open topo Set espacio_topologico
 
 /--
 Las familias de los entornos de cada punto en un espacio topológico cumplen `N3`.
 -/
-TheoremDoc entornos_N4 as "entornos_N4" in "Espacios Topológicos"
+TheoremDoc topo.entornos_N4 as "entornos_N4" in "Espacios Topológicos"
 
 Statement entornos_N4 {X : Type} [espacio_topologico X] : ∀ (x : X), ∀ (N N2 : Set X), entorno x N → N ⊆ N2 → entorno x N2:= by
   Hint (hidden := true) "Como de costumbre, hay que introducir elementos
@@ -36,3 +38,5 @@ Statement entornos_N4 {X : Type} [espacio_topologico X] : ∀ (x : X), ∀ (N N2
   apply hN2
   apply hUN
   exact hy
+
+end topo

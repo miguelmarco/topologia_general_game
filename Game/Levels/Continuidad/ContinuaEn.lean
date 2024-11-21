@@ -1,6 +1,4 @@
 import Game.Levels.Continuidad.CaracterizacionContinuaCerrados
-open espacio_topologico Set
-
 
 World "Continuidad"
 Level 3
@@ -12,7 +10,8 @@ Una aplicación `f : X → Y` entre espacios topológicos se dice
 *continua en un punto* `x : X` si la preimagen de cualquier entorno de `f x`
 es entorno de `x`.
 "
-
+namespace topo
+open topo espacio_topologico Set
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 def continua_en (x : X) := ∀ N , entorno (f x) N → entorno x (f ⁻¹' N)
@@ -30,15 +29,15 @@ theorem def_continua_en (x : X) : continua_en f x ↔ ∀ N , entorno (f x) N �
 Si `f : X → Y` es una aplicación entre espacios topológicos y `x` es un
 punto de `X`, `def_continua_en f x` dice que `continua_en f x ↔ ∀ N , entorno (f x) N → entorno x (f ⁻¹' N)`.
 -/
-TheoremDoc def_continua_en as "def_continua_en" in "Continuidad"
+TheoremDoc topo.def_continua_en as "def_continua_en" in "Continuidad"
 
-NewTheorem def_continua_en
+NewTheorem topo.def_continua_en
 
 /--
 `f : X → Y` es una aplicación entre espacios topológicos, `continua_sii_continua_en f`
 dice que `continua f ↔ ∀ x, continua_en f x`.
 -/
-TheoremDoc continua_sii_continua_en as "continua_sii_continua_en" in "Continuidad"
+TheoremDoc topo.continua_sii_continua_en as "continua_sii_continua_en" in "Continuidad"
 
 /--
 Una aplicación es continua si y solo si es continua en todo punto.
@@ -122,3 +121,5 @@ Statement continua_sii_continua_en : continua f ↔ ∀ x, continua_en f x := by
       exact hx
     · Hint (hidden := true) "Este contenido es trivial."
       trivial
+
+end topo

@@ -1,6 +1,4 @@
 import Game.Levels.Continuidad.ContinuaEn
-open espacio_topologico Set
-
 
 World "Continuidad"
 Level 4
@@ -10,7 +8,8 @@ Introduction "Veamos ahora que, si tenemos una base de abiertos
 en el espacio de llegada, basta ver que se cumple la definición de
 continuidad para los abiertos básicos.
 "
-
+namespace topo
+open topo espacio_topologico Set
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 /--
@@ -18,7 +17,7 @@ Si `f : X → Y` es una aplicación entre espacios topológicos, y `B` es una
 base de abiertos de `Y`, `caracterizacion_continua_base` dice que
 `continua f ↔ ∀ U ∈ B, f ⁻¹' U ∈ abiertos`.
 -/
-TheoremDoc caracterizacion_continua_base as "caracterizacion_continua_base" in "Continuidad"
+TheoremDoc topo.caracterizacion_continua_base as "caracterizacion_continua_base" in "Continuidad"
 
 Statement caracterizacion_continua_base (B : Set (Set Y)) (hB : base B) :
     continua f ↔ ∀ U  ∈ B, f ⁻¹' U ∈ abiertos := by
@@ -100,3 +99,5 @@ Statement caracterizacion_continua_base (B : Set (Set Y)) (hB : base B) :
       simp only [mem_preimage]
       Hint (hidden := true) "Ahora puedes aplicar una de las hipótesis."
       apply hVU
+
+end topo

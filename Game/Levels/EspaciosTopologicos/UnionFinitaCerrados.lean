@@ -2,7 +2,7 @@ import Game.Levels.EspaciosTopologicos.UnionCerrados
 import Mathlib.Data.Set.Lattice
 import Mathlib.Data.Set.Finite
 
-open espacio_topologico Set
+
 
 
 World "EspaciosTopologicos"
@@ -25,6 +25,9 @@ También puede ser útil el resultado `Set.compl_sUnion`, que permite reescribir
 el complementario de una unión como una intersección de los complementarios.
 "
 
+namespace topo
+open topo espacio_topologico Set
+
 /--
 Si `S` es un subconjunto finito de `X`, y tenemos una aplicación `f : X → Y`,
 `Finite.image f S` nos dice que `f '' S` es finito.
@@ -42,7 +45,7 @@ variable {X : Type} [espacio_topologico X]
 /--
 Dada una familia finita de cerrados `F`, `⋃₀ F ∈ cerrados`.
 -/
-TheoremDoc union_finita_cerrados as "union_finita_cerrados" in "Espacios Topológicos"
+TheoremDoc topo.union_finita_cerrados as "union_finita_cerrados" in "Espacios Topológicos"
 
 NewTheorem Set.compl_sUnion Set.Finite.image
 
@@ -101,3 +104,5 @@ Statement union_finita_cerrados (F : Set (Set X)) (hF : Set.Finite F) (hC : F �
     Hint (hidden := true) "Hay una hipótesis que se puede aplicar para ver que algo es un cerrado."
     apply hC
     exact hCC
+
+end topo

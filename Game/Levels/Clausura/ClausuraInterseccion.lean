@@ -1,5 +1,4 @@
 import Game.Levels.Clausura.ClausuraNoEntorno
-open espacio_topologico Set Function
 
 World "Clausura"
 Level 11
@@ -13,12 +12,14 @@ En este nivel, podremos ver lo útil que puede llegar a ser el simplificador
 de expresiones `simp`.
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X] (A B: Set X)
 
 /--
 Si `A` y `B` son conjuntos, entonces `clausura (A ∩ B) ⊆ clausura A ∩ clausura B`.
 -/
-TheoremDoc clausura_interseccion as "clausura_interseccion" in "Clausura"
+TheoremDoc topo.clausura_interseccion as "clausura_interseccion" in "Clausura"
 
 Statement clausura_interseccion : clausura (A ∩ B) ⊆ clausura A ∩ clausura B := by
   Hint (hidden := true) "Prueba a simplificar el objetivo con `simp`."
@@ -37,3 +38,5 @@ Statement clausura_interseccion : clausura (A ∩ B) ⊆ clausura A ∩ clausura
     apply clausura_subconjunto
     Hint (hidden := true) "Esto lo puede demostrar el simplificador."
     simp only [inter_subset_right]
+
+end topo

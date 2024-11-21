@@ -1,22 +1,20 @@
 import Game.Levels.Bases.BE2
 
-open espacio_topologico Set
-
-
 World "Bases"
 Level 9
 Title "En la intersección de dos entornos básicos cabe otro entorno básico."
 
 Introduction "Una nueva propiedad de las bases de entornos: en la intersección de dos
 entornos básicos cabe otro entorno básico."
-
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X]
 
 
 /--
 Si `ℬ x` es una base de entornos de un punto, entonces `∀ N1 ∈ ℬ x , ∀ N2 ∈ ℬ x,   ∃ N3 ∈ (ℬ x), N3 ⊆ N1 ∩ N2 `.
 -/
-TheoremDoc BE3 as "BE3" in "Bases"
+TheoremDoc topo.BE3 as "BE3" in "Bases"
 
 Statement BE3 {ℬ : X → Set (Set X)} (hℬ : ∀ x : X, base_de_entornos x (ℬ x) ) (x : X) :
     ∀ N1 ∈ ℬ x , ∀ N2 ∈ ℬ x,   ∃ N3 ∈ (ℬ x), N3 ⊆ N1 ∩ N2 := by
@@ -41,3 +39,5 @@ Statement BE3 {ℬ : X → Set (Set X)} (hℬ : ∀ x : X, base_de_entornos x (�
     exact hN1
   · apply h1
     exact hN2
+
+end topo

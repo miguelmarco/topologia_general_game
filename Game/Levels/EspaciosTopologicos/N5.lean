@@ -1,15 +1,19 @@
 import Game.Levels.EspaciosTopologicos.N4
-open Set espacio_topologico
+
 
 World "EspaciosTopologicos"
 Level 12
 Title "Propiedades de entornos 5"
 
+namespace topo
+open topo Set espacio_topologico
+
+
 
 /--
 Las familias de los entornos de cada punto en un espacio topológico cumplen `N3`.
 -/
-TheoremDoc entornos_N5 as "entornos_N5" in "Espacios Topológicos"
+TheoremDoc topo.entornos_N5 as "entornos_N5" in "Espacios Topológicos"
 
 Statement entornos_N5 {X : Type} [espacio_topologico X] :∀ (x : X), ∀ (N : Set X), entorno x N → ∃ (N' : Set X), ∀ y ∈ N', entorno y N := by
   Hint (hidden := true) "Como de costumbre, puedes usar `intro` para introducir los
@@ -25,3 +29,5 @@ Statement entornos_N5 {X : Type} [espacio_topologico X] :∀ (x : X), ∀ (N : S
   intro y hy
   Hint (hidden := true) "¿Qué abierto intermedio puedes usar?"
   use U
+
+end topo

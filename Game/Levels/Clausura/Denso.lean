@@ -1,5 +1,5 @@
 import Game.Levels.Clausura.ClausuraInterseccion
-open espacio_topologico Set Function
+
 
 World "Clausura"
 Level 12
@@ -10,6 +10,8 @@ Un conjunto se dice **denso** si su clausura es el total. Veamos
 una caracterización de la densidad.
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X] (A : Set X)
 
 def denso := clausura A = univ
@@ -28,15 +30,15 @@ theorem def_denso : denso A ↔ clausura A = univ := by
 /--
 TheoremDoc
 -/
-TheoremDoc def_denso as "def_denso" in "lemas_definición"
+TheoremDoc topo.def_denso as "def_denso" in "lemas_definición"
 
-NewTheorem def_denso
+NewTheorem topo.def_denso
 
 /--
 Si `X` es un espacio topológico, y `A` es un subconjunto de `X`,
 `denso A ↔ ∀ U ∈ abiertos, (∃ x, x ∈ U) → ∃ y, y ∈ U ∩ A`.
 -/
-TheoremDoc caracterizacion_denso as "caracterizacion_denso" in "Clausura"
+TheoremDoc topo.caracterizacion_denso as "caracterizacion_denso" in "Clausura"
 
 Statement caracterizacion_denso : denso A ↔ ∀ U ∈ abiertos, (∃ x, x ∈ U) → ∃ y, y ∈ (U ∩ A) := by
   Hint (hidden := true) "Puedes separar el objetivo en dos usando `fconstructor`."
@@ -91,3 +93,5 @@ Statement caracterizacion_denso : denso A ↔ ∀ U ∈ abiertos, (∃ x, x ∈ 
       apply h
       exact hU
       use x
+
+end topo

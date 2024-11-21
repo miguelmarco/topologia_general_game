@@ -1,6 +1,6 @@
 import Game.Levels.EspaciosTopologicos.UnionFinitaCerrados
 
-open espacio_topologico
+
 
 
 
@@ -21,6 +21,10 @@ En esta demostración tendremos que introducir una hipótesis auxiliar
 para reescribir un conjunto de una cierta forma.
 "
 
+namespace topo
+open topo espacio_topologico
+
+
 variable {X : Type} [espacio_topologico X]
 
 def entorno (x : X) (E : Set X) := ∃ U ∈ abiertos, x ∈ U ∧ U ⊆ E
@@ -31,9 +35,9 @@ lemma def_entorno (x : X) (E : Set X) : entorno x E ↔  ∃ U ∈ abiertos, x �
 En un espacio topológico, un conjunto `E` es entorno de un punto `x`
 si y solo si existe un abierto `U` tal que `x ∈ U` y `U ⊆ E`.
 -/
-TheoremDoc def_entorno as "def_entorno" in "Espacios Topológicos"
+TheoremDoc topo.def_entorno as "def_entorno" in "Espacios Topológicos"
 
-NewTheorem def_entorno
+NewTheorem topo.def_entorno
 
 /--
 Dados un espacio topológico $X$, un punto $x ∈ X$ y un conjunto $E ⊆ X$,
@@ -77,7 +81,7 @@ NewTactic «let» ext
 En un espacio topológico, un conjunto es abierto si y solo si
 es entorno de todos sus puntos
 -/
-TheoremDoc abierto_sii_entorno as "abierto_sii_entorno" in "Espacios Topológicos"
+TheoremDoc topo.abierto_sii_entorno as "abierto_sii_entorno" in "Espacios Topológicos"
 
 /--
 En un espacio topológico, un conjunto es abierto si y solo si
@@ -227,3 +231,5 @@ Statement abierto_sii_entorno (U : Set X) : U ∈ abiertos ↔ ∀ x ∈ U, ento
     Puedes usar `choose` o `cases'` para obtener esas dos afirmaciones."
     cases' hV with hVab hVU
     exact hVab
+
+end topo

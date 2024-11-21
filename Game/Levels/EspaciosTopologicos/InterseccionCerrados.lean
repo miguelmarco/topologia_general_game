@@ -1,7 +1,7 @@
 import Game.Levels.EspaciosTopologicos.TotalCerrado
 import Mathlib.Data.Set.Lattice
 
-open espacio_topologico Set
+
 
 
 World "EspaciosTopologicos"
@@ -19,7 +19,9 @@ unión de los complementarios.
 
 TheoremTab "Utilidades"
 
+namespace topo
 
+open topo espacio_topologico Set
 
 /--
 Si `F` es una familia de conjuntos, `(⋂₀ F)ᶜ = ⋃₀ (compl '' F)`.
@@ -36,7 +38,7 @@ variable {X : Type} [espacio_topologico X]
 /--
 Si `F` es una familia cualquiera de cerrados, `⋂₀ F` es un cerrado.
 -/
-TheoremDoc cerrado_interseccion as "cerrado_interseccion" in "Espacios Topológicos"
+TheoremDoc topo.cerrado_interseccion as "cerrado_interseccion" in "Espacios Topológicos"
 
 
 /--
@@ -79,3 +81,5 @@ Statement cerrado_interseccion (F : Set (Set X)) (h : F ⊆ cerrados) :
   rw [def_cerrado] at hCC
   Hint (hidden := true) "El objetivo es exactamente una hipótesis."
   exact hCC
+
+end topo

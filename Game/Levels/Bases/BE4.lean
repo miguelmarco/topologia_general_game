@@ -1,6 +1,5 @@
 import Game.Levels.Bases.BE3
 
-open espacio_topologico Set
 
 
 World "Bases"
@@ -12,6 +11,8 @@ Esta propiedad tiene que ver con la existencia de un conjunto intermedio
 en cada abierto básico, de manera que hay un abierto básico intermedio
 para cada punto de ese conjunto."
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X]
 
 
@@ -19,7 +20,7 @@ variable {X : Type} [espacio_topologico X]
 Si para cada punto `z` de un espacio `ℬ z` es una base de entornos de
 `z`, y `x` es un punto, entonces `∀ Bx ∈ ℬ x , ∃ W ∈ ℬ x, ∀ y ∈ W, ∃ By ∈ ℬ y, By ⊆ Bx `.
 -/
-TheoremDoc BE4 as "BE4" in "Bases"
+TheoremDoc topo.BE4 as "BE4" in "Bases"
 
 Statement BE4 {ℬ : X → Set (Set X)} (hℬ : ∀ x : X, base_de_entornos x (ℬ x) ) (x : X) :
     ∀ Bx ∈ ℬ x , ∃ W ∈ ℬ x, ∀ y ∈ W, ∃ By ∈ ℬ y, By ⊆ Bx := by
@@ -109,3 +110,5 @@ Statement BE4 {ℬ : X → Set (Set X)} (hℬ : ∀ x : X, base_de_entornos x (�
       apply hWU
       exact hy
     · exact hUBx
+
+end topo

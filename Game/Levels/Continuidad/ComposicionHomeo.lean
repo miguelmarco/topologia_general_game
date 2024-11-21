@@ -1,5 +1,4 @@
 import Game.Levels.Continuidad.InversaHomeo
-open espacio_topologico Set Function
 
 
 World "Continuidad"
@@ -9,6 +8,7 @@ Title "Composición de homeomorfismos."
 Introduction "La composición de homeomorfismos es un homeomorfismo.
 "
 
+
 @[simp]
 theorem cancela_inver {X Y : Type} {f : X → Y} {g : Y → X} {x  : X} (h : g ∘ f = id) :
     g (f x) = x := by
@@ -16,6 +16,8 @@ theorem cancela_inver {X Y : Type} {f : X → Y} {g : Y → X} {x  : X} (h : g �
   rw [h]
   rfl
 
+namespace topo
+open topo espacio_topologico Set Function
 variable {X Y Z: Type} [espacio_topologico X] [espacio_topologico Y] [espacio_topologico Z] (f : X → Y)
 
 
@@ -23,7 +25,7 @@ variable {X Y Z: Type} [espacio_topologico X] [espacio_topologico Y] [espacio_to
 Si `f: X → Y` y `g : Y → Z` son homeomorfismos, entonces `g ∘ f` es un
 homeomorfismo.
 -/
-TheoremDoc homeomorfismo_composicion as "homeomorfismo_composicion" in "Continuidad"
+TheoremDoc topo.homeomorfismo_composicion as "homeomorfismo_composicion" in "Continuidad"
 
 Statement homeomorfismo_composicion (g : Y → Z) (hf : homeomorfismo f) (hg : homeomorfismo g)
     : homeomorfismo (g ∘ f) := by
@@ -77,3 +79,5 @@ Statement homeomorfismo_composicion (g : Y → Z) (hf : homeomorfismo f) (hg : h
       Hint (hidden := true) "Como antes, puedes simplificar la expresión. Puedes hacer varias
       simplificaciones de golpe con `simp [{hffi},{hggi}]`."
       simp [hffi,hggi]
+
+end topo

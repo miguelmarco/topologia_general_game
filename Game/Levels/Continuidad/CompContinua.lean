@@ -1,8 +1,5 @@
 import Game.Levels.Bases.BE4
 
-open espacio_topologico Set
-
-
 World "Continuidad"
 Level 1
 Title "La composición de aplicaciones continuas es continua."
@@ -19,6 +16,8 @@ continuidad.
 Veamos ahora que la composición de funciones continuas es continua.
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 def continua := ∀ U ∈ abiertos, f⁻¹' U ∈ abiertos
@@ -31,17 +30,17 @@ TheoremTab "Continuidad"
 Si `f : X → Y` es una aplicación entre espacios topológicos, `def_continua`
 dice que `continua f ↔ ∀ U ∈ abiertos, f ⁻¹' U ∈ abiertos`.
 -/
-TheoremDoc def_continua as "def_continua" in "Lemas-definición"
+TheoremDoc topo.def_continua as "def_continua" in "Lemas-definición"
 
 theorem def_continua : continua f ↔ ∀ U ∈ abiertos, f ⁻¹' U ∈ abiertos := by rfl
 
-NewTheorem def_continua
+NewTheorem topo.def_continua
 
 /--
 Si `f : X → Y` y `g : Y → Z` son aplicaciones continuas entre espacios
 topológicos, entonces `g ∘ f` es continua.
 -/
-TheoremDoc composicion_continuas as "composicion_continuas" in "Continuidad"
+TheoremDoc topo.composicion_continuas as "composicion_continuas" in "Continuidad"
 
 /--
 Si `f : X → Y` y `g : Y → Z` son aplicaciones continuas entre espacios
@@ -67,3 +66,5 @@ Statement composicion_continuas {Z : Type} [espacio_topologico Z]
   have h3 := hf (g ⁻¹' U) h2
   Hint (hidden := true) "Ahora el objetivo es exactamente una de las hipótesis."
   exact h3
+
+end topo

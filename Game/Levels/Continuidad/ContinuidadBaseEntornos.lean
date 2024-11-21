@@ -1,6 +1,4 @@
 import Game.Levels.Continuidad.ContinuidadBase
-open espacio_topologico Set
-
 
 World "Continuidad"
 Level 5
@@ -10,7 +8,8 @@ Introduction "Veamos ahora que, si tenemos una subbase de entornos
 en el espacio de llegada, basta ver que se cumple la definición de
 continuidad puntual para entornos básicos.
 "
-
+namespace topo
+open topo espacio_topologico Set
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 
@@ -19,7 +18,7 @@ Si `f : X → Y` es una aplicación entre espacios topológicos, y `x` un punto
 de `X`, y  `B` una base de entornos de `f x`, `caracterizacion_continua_en_base` dice que
 `continua_en f x ↔ ∀ N ∈ B, entorno x (f ⁻¹' U )`.
 -/
-TheoremDoc caracterizacion_continua_en_base as "caracterizacion_continua_en_base" in "Continuidad"
+TheoremDoc topo.caracterizacion_continua_en_base as "caracterizacion_continua_en_base" in "Continuidad"
 
 Statement caracterizacion_continua_en_base (x : X) (B : Set (Set Y)) (hB : base_de_entornos (f x) B) :
     continua_en f x ↔ ∀ U  ∈ B, entorno x (f ⁻¹' U) := by
@@ -101,3 +100,5 @@ Statement caracterizacion_continua_en_base (x : X) (B : Set (Set Y)) (hB : base_
       Hint (hidden := true) "Observa que puedes aplicar `{hV3}`."
       apply hV3
       exact hz
+
+end topo

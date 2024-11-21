@@ -1,6 +1,4 @@
 import Game.Levels.Continuidad.CaracterizacionAbiertaEntorno
-open espacio_topologico Set Function
-
 
 World "Continuidad"
 Level 13
@@ -9,13 +7,15 @@ Title "Imagen de una base de entornos."
 Introduction "Una aplicación continua y abierta envia bases de entornos a bases de entornos.
 "
 
+namespace topo
+open topo espacio_topologico Set Function
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 /--
 Si `f : X → Y` es una función contínua y abierta, `x` un punto de `x` y `ℬ` es una base
 de entornos de `x`, entonces `{ f '' B | B ∈ ℬ}` es una base de entornos de `f x`.
 -/
-TheoremDoc imagen_base_entornos as "imagen_base_entornos" in "Continuidad"
+TheoremDoc topo.imagen_base_entornos as "imagen_base_entornos" in "Continuidad"
 
 Statement imagen_base_entornos (hfcon : continua f) (hfab : abierta f) (x : X) (B : Set (Set X)) (hB : base_de_entornos x B) :
     base_de_entornos (f x) {f '' U | U ∈  B} := by
@@ -90,3 +90,5 @@ Statement imagen_base_entornos (hfcon : continua f) (hfab : abierta f) (x : X) (
       rw [← hxy]
       apply hB1fU
       exact hxB1
+
+end topo

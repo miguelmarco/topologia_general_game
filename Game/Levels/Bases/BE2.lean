@@ -1,8 +1,5 @@
 import Game.Levels.Bases.BE1
 
-open espacio_topologico Set
-
-
 World "Bases"
 Level 8
 Title "Los elementos de una base de entornos de un punto contienen al punto."
@@ -10,12 +7,15 @@ Title "Los elementos de una base de entornos de un punto contienen al punto."
 Introduction "Seguimos con propiedades sencillas de las bases de entornos:
 cualquier elemento de una base de entornos de un punto, contiene a ese punto."
 
+namespace topo
+open topo espacio_topologico Set
+
 variable {X : Type} [espacio_topologico X]
 
 /--
 Si `ℬ x` es una base de entornos de un punto, entonces `∀ B ∈ ℬ x, x ∈ B`.
 -/
-TheoremDoc BE2 as "BE2" in "Bases"
+TheoremDoc topo.BE2 as "BE2" in "Bases"
 
 Statement BE2 {ℬ : X → Set (Set X)} (hℬ : ∀ x : X, base_de_entornos x (ℬ x) ) (x : X) :
     ∀ N ∈ ℬ x, x ∈ N := by
@@ -38,3 +38,5 @@ Statement BE2 {ℬ : X → Set (Set X)} (hℬ : ∀ x : X, base_de_entornos x (�
   Hint (hidden := true) "Ahora puedes aplicar `{h3}`."
   apply h3
   exact hN
+
+end topo

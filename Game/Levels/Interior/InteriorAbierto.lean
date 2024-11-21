@@ -1,5 +1,5 @@
 import Game.Levels.Interior.CaracterizacionInteriorEntorno
-open espacio_topologico Set Function
+
 
 World "Interior"
 Level 3
@@ -8,14 +8,16 @@ Title "El interior es abierto."
 Introduction "El interior de un conjunto es abierto.
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X]
 
 /--
 Dados un conjunto `A` `interior' A` es un abierto..
 -/
-TheoremDoc interior_abierto as "interior_abierto" in "Interior"
+TheoremDoc topo.interior_abierto as "interior_abierto" in "Interior"
 
-Statement interior_abierto (A : Set X) : interior' A ∈ abiertos := by
+Statement interior_abierto (A : Set X) : interior A ∈ abiertos := by
   Hint (hidden := true) "Prueba a reescribir la definición de interior."
   rw [def_interior]
   Hint (hidden := true) "Quieres ver que la unión de una familia
@@ -27,3 +29,5 @@ Statement interior_abierto (A : Set X) : interior' A ∈ abiertos := by
   puedes separarls con `choose` o `cases'`."
   choose hUab hUA using hU
   exact hUab
+
+end topo

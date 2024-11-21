@@ -1,6 +1,4 @@
 import Game.Levels.Continuidad.CaracterizacionHomeoContinuaCerrada
-open espacio_topologico Set Function
-
 
 World "Continuidad"
 Level 12
@@ -10,13 +8,15 @@ Introduction "Una aplicación es abierta si y solo si la imagen de cualquier ent
 es entorno de su imagen.
 "
 
+namespace topo
+open topo espacio_topologico Set Function
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 /--
 Sea `f : X → Y` es una aplicación entre espacios topológicos. `f` es abierta si y solo si
 `∀ x, ∀ N, entorno x N → entorno (f x) (f '' N)`.
 -/
-TheoremDoc caracterizacion_abierta_entorno as "caracterizacion_abierta_entorno" in "Continuidad"
+TheoremDoc topo.caracterizacion_abierta_entorno as "caracterizacion_abierta_entorno" in "Continuidad"
 
 Statement caracterizacion_abierta_entorno : abierta f ↔ ∀ x, ∀ N, entorno x N → entorno (f x) (f '' N) := by
   Hint (hidden := true) "Separa el objetivo en dos con `fconstructor`."
@@ -76,3 +76,5 @@ Statement caracterizacion_abierta_entorno : abierta f ↔ ∀ x, ∀ N, entorno 
     Hint (hidden := true) "Prueba a reescribir `{haux}` con `{hxy}`."
     rw [hxy] at haux
     exact haux
+
+end topo

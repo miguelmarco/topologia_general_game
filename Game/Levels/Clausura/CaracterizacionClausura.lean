@@ -1,5 +1,4 @@
 import Game.Levels.Continuidad.ContinuaAbiertaBaseEntorno
-open espacio_topologico Set Function
 
 World "Clausura"
 Level 1
@@ -29,6 +28,10 @@ TacticDoc by_contra
 
 NewTactic by_contra
 
+TheoremTab "Clausura"
+
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X]
 
 def clausura (A : Set X) := ⋂₀ { C ∈ cerrados | A ⊆ C}
@@ -39,17 +42,16 @@ de $A$ es la intersección de los cerrados que contienen a $A$.
 -/
 DefinitionDoc clausura as "clausura"
 
-TheoremTab "Clausura"
 
 /--
 Si `A` es un conjunto en un espacio topológico, `def_clausura A` dice
 que `clausura A = ⋂₀ { C ∈ cerrados | A ⊆ C}`.
 -/
-TheoremDoc def_clausura as "def_clausura" in "lemas-definición"
+TheoremDoc topo.def_clausura as "def_clausura" in "lemas-definición"
 
 theorem def_clausura (A : Set X) : clausura A = ⋂₀ { C ∈ cerrados | A ⊆ C} := by rfl
 
-NewTheorem def_clausura
+NewTheorem topo.def_clausura
 
 NewDefinition clausura
 
@@ -57,7 +59,7 @@ NewDefinition clausura
 Un punto `x` está en la clausura de `A` si y sólo si todo
 abierto que lo contenga, interseca a `A`.
 -/
-TheoremDoc caracterizacion_clausura as "caracterizacion_clausura" in "Clausura"
+TheoremDoc topo.caracterizacion_clausura as "caracterizacion_clausura" in "Clausura"
 
 Statement caracterizacion_clausura (A : Set X) (x : X) : x ∈ clausura A ↔ ∀ U ∈ abiertos, x ∈ U → ∃ y, y ∈ U ∩ A := by
   Hint (hidden := true) "Puedes separar el objetivo en dos con `fconstructor`."
@@ -131,3 +133,5 @@ Statement caracterizacion_clausura (A : Set X) (x : X) : x ∈ clausura A ↔ �
     apply hyC
     apply hAC
     exact hyA
+
+end topo

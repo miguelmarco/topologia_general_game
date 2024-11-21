@@ -1,7 +1,5 @@
 import Game.Levels.Bases.CaracterizacionBases
 
-open espacio_topologico Set
-
 
 World "Bases"
 Level 2
@@ -10,6 +8,8 @@ Title "Una base llena el espacio."
 Introduction "Vamos ahora con un resultado fácil: la unión de una base es el
 total.
 "
+namespace topo
+open topo espacio_topologico Set
 
 variable {X : Type} [espacio_topologico X]
 
@@ -17,7 +17,7 @@ variable {X : Type} [espacio_topologico X]
 /--
 La unión de una base es el total.
 -/
-TheoremDoc union_base_total as "union_base_total" in "Bases"
+TheoremDoc topo.union_base_total as "union_base_total" in "Bases"
 
 /--
 La unión de una base es el total.
@@ -75,3 +75,5 @@ Statement union_base_total (B : Set (Set X)) (hB : base B) : ⋃₀ B = univ := 
     · apply hFB
       exact hV1
     · exact hV2
+
+end topo

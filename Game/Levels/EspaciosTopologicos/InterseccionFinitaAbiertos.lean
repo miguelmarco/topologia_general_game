@@ -22,6 +22,8 @@ Veamos ahora que la tercera condición se puede generalizar a la intersección
 de una cantidad finita de conjuntos abiertos.
 "
 
+namespace topo
+
 class espacio_topologico (X : Type) where
   abiertos : Set (Set X)
   abierto_vacio : ∅ ∈ abiertos
@@ -39,37 +41,37 @@ Un espacio topológico es un conjunto ambiente `X` junto con una familia
 de subconjuntos (llamada `abiertos`) que satisface `abierto_vacio`,
 `abierto_total`, `union_abiertos` e `interseccion_abiertos`.
 -/
-DefinitionDoc espacio_topologico as "espacio_topologico"
+DefinitionDoc topo.espacio_topologico as "espacio_topologico"
 
 /--
 En un espacio topológico `X`, se tiene `∅ ∈ abiertos`.
 -/
-DefinitionDoc espacio_topologico.abierto_vacio as "abierto_vacio"
+DefinitionDoc topo.espacio_topologico.abierto_vacio as "abierto_vacio"
 
 /--
 En un espacio topológico `X`, se tiene `univ ∈ abiertos`.
 -/
-DefinitionDoc espacio_topologico.abierto_total as "abierto_total"
+DefinitionDoc topo.espacio_topologico.abierto_total as "abierto_total"
 
 /--
 En un espacio topológico `X`, dada una familia `F : Set (Set X)` tal que
 `F ⊆ abiertos`, se tiene `⋃₀ F ∈ abiertos`.
 -/
-DefinitionDoc espacio_topologico.union_abiertos as "union_abiertos"
+DefinitionDoc topo.espacio_topologico.union_abiertos as "union_abiertos"
 
 /--
 En un espacio topológico `X`, dados dos conjuntos `U V` tales
 que `U ∈ abiertos` y `V ∈ abiertos`, se tiene `U ∩ V ∈ abiertos`.
 -/
-DefinitionDoc espacio_topologico.interseccion_abiertos as "interseccion_abiertos"
+DefinitionDoc topo.espacio_topologico.interseccion_abiertos as "interseccion_abiertos"
 
-NewDefinition espacio_topologico espacio_topologico.abierto_vacio espacio_topologico.abierto_total espacio_topologico.union_abiertos espacio_topologico.interseccion_abiertos
+NewDefinition topo.espacio_topologico topo.espacio_topologico.abierto_vacio topo.espacio_topologico.abierto_total topo.espacio_topologico.union_abiertos topo.espacio_topologico.interseccion_abiertos
 
 /--
 Sea `X` un espacio topológico, y `F` una familia finita de conjuntos abiertos,
 entonces `⋂₀ F` es un abierto.
 -/
-TheoremDoc interseccion_finita_abiertos as "interseccion_finita_abiertos" in "Espacios Topológicos"
+TheoremDoc topo.interseccion_finita_abiertos as "interseccion_finita_abiertos" in "Espacios Topológicos"
 
 /--
 Sea `X` un espacio topológico, y `F` una familia finita de conjuntos abiertos,
@@ -108,3 +110,5 @@ Statement interseccion_finita_abiertos {X : Type} [espacio_topologico X] (F : Se
       right
       Hint (hidden := true) "Ahora el objetivo es exactamente una de las hipótesis."
       exact hU
+
+end topo

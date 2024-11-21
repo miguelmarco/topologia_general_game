@@ -1,5 +1,4 @@
 import Game.Levels.Clausura.CaracterizacionClausuraEntornos
-open espacio_topologico Set Function
 
 World "Clausura"
 Level 3
@@ -9,6 +8,8 @@ Introduction "Veamos un resultado fácil: la clausura de un conjunto siempre
 es un cerrado.
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X] (A : Set X)
 
 
@@ -16,7 +17,7 @@ variable {X : Type} [espacio_topologico X] (A : Set X)
 Un punto `x` está en la clausura de `A` si y sólo si todo
 entorno de `x`, interseca a `A`.
 -/
-TheoremDoc clausura_cerrado as "clausura_cerrado" in "Clausura"
+TheoremDoc topo.clausura_cerrado as "clausura_cerrado" in "Clausura"
 
 Statement clausura_cerrado : clausura A ∈ cerrados := by
   Hint (hidden := true) "Puede ser útil reescribir la definición de clausura."
@@ -31,3 +32,5 @@ Statement clausura_cerrado : clausura A ∈ cerrados := by
   o `cases'`."
   choose hC1 hC2 using hC
   exact hC1
+
+end topo

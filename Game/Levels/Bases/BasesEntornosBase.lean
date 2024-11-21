@@ -1,6 +1,6 @@
 import Game.Levels.Bases.FamiliaBaseSii
 
-open espacio_topologico Set
+
 
 
 World "Bases"
@@ -14,6 +14,8 @@ de $x$ tiene un elemento de $ℬ^x$ contenido en él.
 Veamos ahora que si tenemos una base de entornos abiertos para cada punto,
 podemos formar una base de la topología.
 "
+namespace topo
+open topo espacio_topologico Set
 
 variable {X : Type} [espacio_topologico X]
 
@@ -33,9 +35,9 @@ theorem def_base_de_entornos (x : X) (ℬ : Set (Set X)) :
 Dado un punto `x` y una familia de conjuntos `ℬ`, `def_base_de_entornos x ℬ` dice que
 `base_de_entornos x X ↔ (∀ B ∈ ℬ, entorno x B) ∧ ∀ (N : Set X), entorno x N → ∃ B ∈ ℬ, B ⊆ N`
 -/
-TheoremDoc def_base_de_entornos as "def_base_de_entornos" in "lemas-definición"
+TheoremDoc topo.def_base_de_entornos as "def_base_de_entornos" in "lemas-definición"
 
-NewTheorem def_base_de_entornos
+NewTheorem topo.def_base_de_entornos
 
 /--
 En un espacio topológico $(X,𝓣)$, una *base de entornos* de un punto *x*
@@ -51,7 +53,7 @@ NewDefinition base_de_entornos
 Si para cada punto $x ∈ X$ tenemos una base de entornos abiertos $ℬ x$,
 entonces la unión de todas ellas es una base de la topología.
 -/
-TheoremDoc base_de_base_de_entornos_abiertos as "base_de_base_de_entornos_abiertos" in "Bases"
+TheoremDoc topo.base_de_base_de_entornos_abiertos as "base_de_base_de_entornos_abiertos" in "Bases"
 
 Statement base_de_base_de_entornos_abiertos  (ℬ : X → Set (Set X)) (hab : ∀ (x : X), ℬ x ⊆ abiertos) (hent : ∀ x, base_de_entornos x (ℬ x)) :
     base (⋃₀ {(ℬ x) | x : X}) := by
@@ -139,3 +141,5 @@ Statement base_de_base_de_entornos_abiertos  (ℬ : X → Set (Set X)) (hab : �
         Hint (hidden := true)  "Ya tenemos una hipótesis que nos da el resultado."
         exact hB
       · exact hBU
+
+end topo

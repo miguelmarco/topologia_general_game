@@ -1,6 +1,6 @@
 import Game.Levels.Bases.UnionBaseTotal
 
-open espacio_topologico Set
+
 
 
 World "Bases"
@@ -10,13 +10,16 @@ Title "Intersección de dos elementos de una base."
 Introduction "Veamos ahora otra propiedad de las bases.
 "
 
+namespace topo
+open topo espacio_topologico Set
+
 variable {X : Type} [espacio_topologico X]
 
 /--
 Dado un punto en la intersección de dos elementos de una base, hay un tercer
 elemento de la base intermedio entre el punto y la intersección.
 -/
-TheoremDoc interseccion_elementos_base as "interseccion_elementos_base" in "Bases"
+TheoremDoc topo.interseccion_elementos_base as "interseccion_elementos_base" in "Bases"
 
 Statement interseccion_elementos_base (B : Set (Set X)) (hB : base B) (B1 B2 : Set X)
     (hB1 : B1 ∈ B) (hB2 : B2 ∈ B) : ∀ x ∈ B1 ∩ B2, ∃ B3 ∈ B, x ∈ B3 ∧ B3 ⊆ B1 ∩ B2 := by
@@ -51,3 +54,5 @@ Statement interseccion_elementos_base (B : Set (Set X)) (hB : base B) (B1 B2 : S
   gracias a `{hB1B2ab}`) y `{x}` (gracias a `{hx}`)."
   have hx2 := hBx (B1 ∩ B2) hB1B2ab x hx
   exact hx2
+
+end topo

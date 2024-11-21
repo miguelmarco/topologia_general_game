@@ -18,6 +18,7 @@ Introduction "En este nivel y los siguientes
  el lema `def_cerrado`, que dice exactamente que un conjunto es cerrado
  si y sólo si su complementario es abierto.
 "
+namespace topo
 
 open espacio_topologico Set
 
@@ -39,15 +40,15 @@ DefinitionDoc cerrados as "cerrados"
 En un espacio topológico, un conjunto `C` es cerrado, si y sólo si su
 complementario es abierto.
 -/
-TheoremDoc def_cerrado as "def_cerrado" in "Espacios Topológicos"
+TheoremDoc topo.def_cerrado as "def_cerrado" in "Espacios Topológicos"
 
-NewTheorem def_cerrado
+NewTheorem topo.def_cerrado
 NewDefinition cerrados
 
 /--
 En un espacio topológico, el vacío es un cerrado.
 -/
-TheoremDoc cerrado_vacio as "cerrado_vacio" in "Espacios Topológicos"
+TheoremDoc topo.cerrado_vacio as "cerrado_vacio" in "Espacios Topológicos"
 
 /--
 En un espacio topológico, el vacío es un cerrado.
@@ -60,3 +61,5 @@ Statement cerrado_vacio : (∅ : Set X) ∈ cerrados := by
   simp only [compl_empty]
   Hint (hidden := true) "Hay un axioma que te dice exactamente eso."
   exact abierto_total
+
+end topo

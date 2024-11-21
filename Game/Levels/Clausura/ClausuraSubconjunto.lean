@@ -1,5 +1,5 @@
 import Game.Levels.Clausura.ClausuraContiene
-open espacio_topologico Set Function
+
 
 World "Clausura"
 Level 6
@@ -10,13 +10,15 @@ Introduction "Otro resultado fácil: si $A ⊆ B$, $\\bar{A} ⊆ \\bar{B}$.
 Para demostrar esto, símplemente tendrás que aplicar los resultados anteriores.
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X] (A B : Set X)
 
 
 /--
 Si `A ⊆ B`, `clausura A ⊆ clausura B`
 -/
-TheoremDoc clausura_subconjunto as "clausura_subconjunto" in "Clausura"
+TheoremDoc topo.clausura_subconjunto as "clausura_subconjunto" in "Clausura"
 
 Statement clausura_subconjunto (h : A ⊆ B): clausura A ⊆ clausura B := by
   Hint (hidden := true) "Recuerda que un resultado anterior te permite
@@ -31,3 +33,5 @@ Statement clausura_subconjunto (h : A ⊆ B): clausura A ⊆ clausura B := by
   apply clausura_contiene
   apply h
   exact hy
+
+end topo

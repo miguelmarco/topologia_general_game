@@ -1,5 +1,4 @@
 import Game.Levels.Continuidad.CaracterizacionHomeoContinuaAbierta
-open espacio_topologico Set Function
 
 
 World "Continuidad"
@@ -9,6 +8,8 @@ Title "Otra caracterización de homeomorfismos."
 Introduction "Una biyección es un homeomorfismo si y sólo es continua y cerrada.
 "
 
+namespace topo
+open topo espacio_topologico Set Function
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 def cerrada := ∀ U ∈ cerrados, f '' U ∈ cerrados
@@ -25,7 +26,7 @@ NewDefinition cerrada
 Una aplicación entre espacios topológicos que tenga inversa,
 es un homeomorfismo si y solo si es continua y cerrada.
 -/
-TheoremDoc homeomorfismo_sii_continua_cerrada as "homeomorfismo_sii_continua_cerrada" in "Continuidad"
+TheoremDoc topo.homeomorfismo_sii_continua_cerrada as "homeomorfismo_sii_continua_cerrada" in "Continuidad"
 
 Statement homeomorfismo_sii_continua_cerrada (fi : Y → X) (hffi : f ∘ fi = id) (hfif : fi ∘ f = id):
     homeomorfismo f ↔  continua f ∧ cerrada f:= by
@@ -139,3 +140,5 @@ Statement homeomorfismo_sii_continua_cerrada (fi : Y → X) (hffi : f ∘ fi = i
       fconstructor
       · exact hfif
       · exact hffi
+
+end topo

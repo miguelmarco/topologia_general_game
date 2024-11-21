@@ -1,7 +1,5 @@
 import Game.Levels.Continuidad.CompContinua
 
-open espacio_topologico Set
-
 
 World "Continuidad"
 Level 2
@@ -10,14 +8,15 @@ Title "Continuidad en términos de cerrados."
 Introduction "Veamos ahora que la continuidad de una función de puede caracterizar también en términos
 de preimagenes de cerrados.
 "
-
+namespace topo
+open topo espacio_topologico Set
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 /--
 Dada una aplicación `f : X → Y` entre espacios topológicos, `continua_sii_cerrados f` dice
 que `continua f ↔ ∀ U ∈ cerrados, f ⁻¹' U ∈ cerrados`.
 -/
-TheoremDoc continua_sii_cerrados as "continua_sii_cerrados" in "Continuidad"
+TheoremDoc topo.continua_sii_cerrados as "continua_sii_cerrados" in "Continuidad"
 
 /--
 Una aplicación es continua si y sólo si la preimagen de cualquier cerrado es un cerrado.
@@ -67,3 +66,5 @@ Statement continua_sii_cerrados : continua f ↔ ∀ U ∈ cerrados, f ⁻¹' U 
     Hint (hidden := true) "Puede ser útil simplificar `{h2}`."
     simp only [preimage_compl, compl_compl] at h2
     exact h2
+
+end topo

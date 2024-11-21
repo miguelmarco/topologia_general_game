@@ -1,5 +1,5 @@
 import Game.Levels.Clausura.CaracterizacionClausura
-open espacio_topologico Set Function
+
 
 World "Clausura"
 Level 2
@@ -10,6 +10,9 @@ usando entornos.
 
 Esta demostración será fácil gracias a la anterior.
 "
+
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X]
 
 
@@ -17,7 +20,7 @@ variable {X : Type} [espacio_topologico X]
 Un punto `x` está en la clausura de `A` si y sólo si todo
 entorno de `x`, interseca a `A`.
 -/
-TheoremDoc caracterizacion_clausura_entornos as "caracterizacion_clausura_entornos" in "Clausura"
+TheoremDoc topo.caracterizacion_clausura_entornos as "caracterizacion_clausura_entornos" in "Clausura"
 
 Statement caracterizacion_clausura_entornos (A : Set X) (x : X) : x ∈ clausura A ↔ ∀ N, entorno x N → ∃ y, y ∈ N ∩ A := by
   Hint (hidden := true) "Será todo más fácil si usas la caracterización
@@ -51,3 +54,5 @@ Statement caracterizacion_clausura_entornos (A : Set X) (x : X) : x ∈ clausura
       rw [abierto_sii_entorno] at hU
       apply hU
       exact hxU
+
+end topo

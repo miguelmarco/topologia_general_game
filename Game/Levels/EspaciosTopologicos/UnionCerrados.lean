@@ -1,7 +1,7 @@
 import Game.Levels.EspaciosTopologicos.InterseccionCerrados
 import Mathlib.Data.Set.Lattice
 
-open espacio_topologico Set
+
 
 
 World "EspaciosTopologicos"
@@ -12,12 +12,16 @@ Introduction "Despues de un reto un poco más dificil, vamos a ver uno más
 fácil: la unión de dos cerrados es cerrado.
 "
 
+namespace topo
+
+open topo espacio_topologico Set
+
 variable {X : Type} [espacio_topologico X]
 
 /--
 Dados dos cerrados `U` y, `V`, su unión `U ∪ V` es cerrado
 -/
-TheoremDoc union_cerrados as "union_cerrados" in "Espacios Topológicos"
+TheoremDoc topo.union_cerrados as "union_cerrados" in "Espacios Topológicos"
 
 /--
 Dados dos cerrados `U` y, `V`, su unión `U ∪ V` es cerrado
@@ -32,3 +36,5 @@ Statement union_cerrados (U V : Set X) (hU : U ∈ cerrados) (hV : V ∈ cerrado
   apply interseccion_abiertos
   · exact hU
   · exact hV
+
+end topo

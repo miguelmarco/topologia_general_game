@@ -1,8 +1,5 @@
 import Game.Levels.EspaciosTopologicos.N5
 
-open espacio_topologico Set
-
-
 World "Bases"
 Level 1
 Title "Caracterización de las bases."
@@ -18,6 +15,9 @@ en ocasiones puede resultar útil.
 La demostración no es difícil, pero es larga porque tiene varios pasos
 y hay que prestar atención para no perderse.
 "
+namespace topo
+open topo espacio_topologico Set
+
 
 variable {X : Type} [espacio_topologico X]
 
@@ -41,9 +41,9 @@ theorem def_base (B : Set (Set X)) : base B ↔  B ⊆ abiertos ∧ ∀ U ∈ ab
 /--
 Dada una familia de conjuntos `B`, `def_base B` dice que `base B ↔  B ⊆ abiertos ∧ ∀ U ∈ abiertos, ∃ F ⊆ B, U = ⋃₀ F`.
 -/
-TheoremDoc def_base as "def_base" in "lemas-definición"
+TheoremDoc topo.def_base as "def_base" in "lemas-definición"
 
-NewTheorem def_base
+NewTheorem topo.def_base
 
 
 /--
@@ -51,7 +51,7 @@ Una familia `F` de subconjuntos abiertos  de un espacio topológico `X` es una b
 si y sólo si para todo abierto `U` y para todo punto `x ∈ U`,
 existe un `B ∈ F` tal que `x ∈ B ⊆ U`.
 -/
-TheoremDoc caracterizacion_base as "caracterizacion_base" in "Bases"
+TheoremDoc topo.caracterizacion_base as "caracterizacion_base" in "Bases"
 
 Statement caracterizacion_base (B : Set (Set X)) : base B ↔ B ⊆ abiertos ∧ ∀ U ∈ abiertos, ∀ x ∈ U, ∃ V ∈ B, x ∈ V ∧ V ⊆ U := by
   Hint (hidden := true) "Como siempre que tengas una doble implicación,
@@ -232,3 +232,5 @@ Statement caracterizacion_base (B : Set (Set X)) : base B ↔ B ⊆ abiertos ∧
           Hint (hidden := true) "Observa que `{hyV}` te puede ser útil para reescribir."
           rw [hyV]
           exact hVx
+
+end topo

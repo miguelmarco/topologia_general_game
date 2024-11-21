@@ -1,5 +1,5 @@
 import Game.Levels.EspaciosTopologicos.Entornos
-open Set espacio_topologico
+
 
 
 
@@ -22,6 +22,9 @@ $\\mathcal{E}(x)$, definimos las siguientes propiedades que puede cumplir.
 - `N4` : $\\forall N \\in \\mathcal{E}(x), \\forall A, N \\subseteq A \\Rightarrow  A \\in \\mathcal{E}(x)$
 - `N5` : $\\forall N \\in \\mathcal{E}(x), \\exists N' \\in \\mathcal{E}(x), \\forall y \\in N', N \\in \\mathcal{E}(y)$
 "
+
+namespace topo
+open topo Set espacio_topologico
 
 def N1 (X : Type) (E : X → Set (Set X)) := ∀ (x : X) , ∃ (N : Set X) , N ∈ E x
 
@@ -67,7 +70,7 @@ NewDefinition N1 N2 N3 N4 N5
 /--
 Las familias de los entornos de cada punto en un espacio topológico cumplen `N1`.
 -/
-TheoremDoc entornos_N1 as "entornos_N1" in "Espacios Topológicos"
+TheoremDoc topo.entornos_N1 as "entornos_N1" in "Espacios Topológicos"
 
 Statement entornos_N1 {X : Type} [espacio_topologico X] : ∀ x : X, ∃ N, entorno x N := by
   Hint (hidden := true) "Puesto que el objetivo es una afirmación universal,
@@ -98,3 +101,5 @@ Statement entornos_N1 {X : Type} [espacio_topologico X] : ∀ x : X, ∃ N, ento
     trivial
   · Hint (hidden := true) "Esto es cierto trivialmente."
     trivial
+
+end topo

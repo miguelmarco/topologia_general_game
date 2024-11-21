@@ -1,6 +1,4 @@
 import Game.Levels.Continuidad.ContinuidadBaseEntornos
-open espacio_topologico Set
-
 
 World "Continuidad"
 Level 6
@@ -11,7 +9,8 @@ resultados anteriores: si tenemos una subbase de entornos
 en el espacio de llegada, basta ver que se cumple la definición de
 continuidad para entornos básicos.
 "
-
+namespace topo
+open topo espacio_topologico Set
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 
@@ -20,7 +19,7 @@ Si `f : X → Y` es una aplicación entre espacios topológicos, y para cada
 `y` de `Y`,  `B y` es una base de entornos de `y`, `caracterizacion_continua_base_entornos` dice que
 `continua f ↔ ∀ x, ∀ N ∈ B (f x), entorno x (f ⁻¹' N)`.
 -/
-TheoremDoc caracterizacion_continua_base_entornos as "caracterizacion_continua_en_base" in "Continuidad"
+TheoremDoc topo.caracterizacion_continua_base_entornos as "caracterizacion_continua_en_base" in "Continuidad"
 
 Statement caracterizacion_continua_base_entornos  (B : Y →  Set (Set Y)) (hB : ∀ y, base_de_entornos y (B y)) :
     continua f ↔ ∀ x, ∀ N ∈ B (f x), entorno x (f ⁻¹' N) := by
@@ -61,3 +60,5 @@ Statement caracterizacion_continua_base_entornos  (B : Y →  Set (Set Y)) (hB :
     porque `{B} ({f} {x})` es una base de entornos de `{f} {x}`; y ahora
     tenemos que demostrarlo. Por fortuna, una hipótesis nos lo garantiza."
     apply hB
+
+end topo

@@ -1,6 +1,4 @@
 import Game.Levels.Continuidad.CorolarioBaseEntornos
-open espacio_topologico Set
-
 
 World "Continuidad"
 Level 7
@@ -12,6 +10,8 @@ si es contínua, biyectiva, y su inversa es contínua.
 Veamos algunas propiedades de los homeomorfismos
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
 
@@ -23,7 +23,7 @@ theorem def_homeomorfismo : homeomorfismo f ↔ continua f ∧ ∃ g : Y →  X,
 Si `f : X → Y` es una aplicación entre espacios topológicos, `def_homeomorfismo`
 dice que `homeomorfismo f ↔ continua f ∧ ∃ g : Y →  X, continua g ∧ g ∘ f = id ∧ f ∘ g = id `.
 -/
-TheoremDoc def_homeomorfismo as "def_homeomorfismo" in "Continuidad"
+TheoremDoc topo.def_homeomorfismo as "def_homeomorfismo" in "Continuidad"
 
 /--
 Una aplicación entre espacios topológicos es un *homeomorfismo*
@@ -33,12 +33,12 @@ DefinitionDoc homeomorfismo as "homeomorfismo"
 
 NewDefinition homeomorfismo
 
-NewTheorem def_homeomorfismo
+NewTheorem topo.def_homeomorfismo
 
 /--
 La aplicación identidad `id: X → X` es un homeomorfismo.
 -/
-TheoremDoc homeomorfismo_identidad as "homeomorfismo_identidad" in "Continuidad"
+TheoremDoc topo.homeomorfismo_identidad as "homeomorfismo_identidad" in "Continuidad"
 
 Statement homeomorfismo_identidad : homeomorfismo (id : X → X) := by
   Hint (hidden := true) "Empieza reescribiendo la definición de homeomorfismo."
@@ -78,3 +78,5 @@ Statement homeomorfismo_identidad : homeomorfismo (id : X → X) := by
     · Hint (hidden := true) "Ahora hay que volver a probarlo. De hecho es
       también es cierto por definición, así que se puede probar con `rfl`."
       rfl
+
+end topo

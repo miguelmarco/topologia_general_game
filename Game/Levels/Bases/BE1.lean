@@ -1,7 +1,5 @@
 import Game.Levels.Bases.BaseEntornosSii
 
-open espacio_topologico Set
-
 
 World "Bases"
 Level 7
@@ -10,6 +8,9 @@ Title "Todo punto tiene una base de entronos no vacía."
 Introduction "Vamos a ver algunas propiedades básicas de las bases de entornos.
 La primera es muy sencilla: cualquier base de entornos de un punto es no vacía."
 
+namespace topo
+open topo espacio_topologico Set
+
 variable {X : Type} [espacio_topologico X]
 
 
@@ -17,7 +18,7 @@ variable {X : Type} [espacio_topologico X]
 Si para cada punto `x` tenemos una base de entornos `ℬ x`, entonces
 hay algún elemento en cada `ℬ x`.
 -/
-TheoremDoc BE1 as "BE1" in "Bases"
+TheoremDoc topo.BE1 as "BE1" in "Bases"
 
 /--
 Si para cada punto `x` tenemos una base de entornos `ℬ x`, entonces
@@ -52,3 +53,5 @@ Statement BE1 {ℬ : X → Set (Set X)} (hℬ : ∀ (x : X), base_de_entornos x 
   puedes elegir uno (y sus propiedades) con `choose`."
   choose B hB hB2 using h5
   use B
+
+end topo

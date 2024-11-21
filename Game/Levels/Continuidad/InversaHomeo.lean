@@ -1,6 +1,4 @@
 import Game.Levels.Continuidad.IdentidadHomeo
-open espacio_topologico Set Function
-
 
 World "Continuidad"
 Level 8
@@ -8,6 +6,9 @@ Title "Inversa de un homeomorfismo."
 
 Introduction "La inversa de un homeomorfismo es un homeomorfismo.
 "
+
+namespace topo
+open topo espacio_topologico Set Function
 
 variable {X Y: Type} [espacio_topologico X] [espacio_topologico Y] (f : X → Y)
 
@@ -27,16 +28,16 @@ theorem inversa_unica {A B : Type} (f : A → B) (g1 g2 : B → A)
 Si tenemos aplicaciones `f : X → Y` y `g₁ g₂ : Y → X` tales que
 `f ∘ g₂ = id` y `g₁ ∘ f = id` entonces `g₁ = g₁`
 -/
-TheoremDoc inversa_unica as "inversa_unica" in "Utilidades"
+TheoremDoc topo.inversa_unica as "inversa_unica" in "Utilidades"
 
-NewTheorem inversa_unica
+NewTheorem topo.inversa_unica
 
 
 /--
 Si `f: X → Y` es un homeomorfismo y `g : Y → X` es inversa de `f`, entonces
 `g` es un homeomorfismo.
 -/
-TheoremDoc homeomorfismo_inversa as "homeomorfismo_inversa" in "Continuidad"
+TheoremDoc topo.homeomorfismo_inversa as "homeomorfismo_inversa" in "Continuidad"
 
 Statement homeomorfismo_inversa  (hf : homeomorfismo f) (h : Y → X) (hfh : h ∘ f = id)
     : homeomorfismo h := by
@@ -74,3 +75,5 @@ Statement homeomorfismo_inversa  (hf : homeomorfismo f) (h : Y → X) (hfh : h �
   · Hint (hidden := true) "Fíjate que ahora debes probar que existe
     una inversa contonua de `{g}`. ¿Cual puedes usar?"
     use f
+
+end topo

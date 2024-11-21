@@ -1,5 +1,5 @@
 import Game.Levels.Clausura.ClausuraIdempotente
-open espacio_topologico Set Function
+
 
 World "Clausura"
 Level 9
@@ -9,13 +9,15 @@ Introduction "
 La clausura una unión es la unión de las clausuras
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X] (A B: Set X)
 
 
 /--
 Dados dos conjuntos  `A` y `B`, `clausura (A ∪ B) = clausura A ∪ clausura B`
 -/
-TheoremDoc clausura_union as "clausura_union" in "Clausura"
+TheoremDoc topo.clausura_union as "clausura_union" in "Clausura"
 
 Statement clausura_union : clausura (A ∪ B) = clausura A ∪ clausura B := by
   Hint (hidden := true) "Para demostrar la igualdad de dos conjuntos
@@ -84,3 +86,5 @@ Statement clausura_union : clausura (A ∪ B) = clausura A ∪ clausura B := by
         right
         exact hy
       exact h
+
+end topo

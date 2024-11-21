@@ -11,6 +11,7 @@ Introduction "Vamos a ver un resultado análogo al anterior: el conjunto
 total también es un cerrado
 "
 
+namespace topo
 open espacio_topologico Set
 
 variable {X : Type} [espacio_topologico X]
@@ -19,7 +20,7 @@ variable {X : Type} [espacio_topologico X]
 /--
 En un espacio topológico, el total es un cerrado.
 -/
-TheoremDoc cerrado_total as "cerrado_total" in "Espacios Topológicos"
+TheoremDoc topo.cerrado_total as "cerrado_total" in "Espacios Topológicos"
 
 /--
 En un espacio topológico, el vacío es un cerrado.
@@ -32,3 +33,5 @@ Statement cerrado_total : (univ : Set X) ∈ cerrados := by
   simp only [compl_univ]
   Hint (hidden := true) "Hay un axioma que te dice exactamente eso."
   exact abierto_vacio
+
+end topo

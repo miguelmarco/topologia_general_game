@@ -1,15 +1,17 @@
 import Game.Levels.EspaciosTopologicos.N1
-open Set espacio_topologico
+
 
 World "EspaciosTopologicos"
 Level 9
 Title "Propiedades de entornos 2"
 
+namespace topo
+open topo Set espacio_topologico
 
 /--
 Las familias de los entornos de cada punto en un espacio topológico cumplen `N2`.
 -/
-TheoremDoc entornos_N2 as "entornos_N2" in "Espacios Topológicos"
+TheoremDoc topo.entornos_N2 as "entornos_N2" in "Espacios Topológicos"
 
 Statement entornos_N2 {X : Type} [espacio_topologico X] : ∀ (x : X), ∀ N , entorno x N →  x ∈ N := by
   Hint (hidden := true) "Como de costumbre, puedes empezar
@@ -25,3 +27,5 @@ Statement entornos_N2 {X : Type} [espacio_topologico X] : ∀ (x : X), ∀ N , e
   apply hUN
   Hint (hidden := true) "El objetivo es exactamente `{hxU}`."
   exact hxU
+
+end topo

@@ -1,6 +1,6 @@
 import Game.Levels.Bases.InterseccionElementosBase
 
-open espacio_topologico Set
+
 
 
 World "Bases"
@@ -11,13 +11,16 @@ Introduction "Ahora vamos a ver un criterio para determinar que una familia de a
 comparándola con otra base.
 "
 
+namespace topo
+open topo espacio_topologico Set
+
 variable {X : Type} [espacio_topologico X] (B : Set (Set X)) (hB : base B)
 
 /--
 Dada una base $𝓑$, y una familia de abiertos $𝓑'$, $𝓑'$ es base si y sólo sí
 $∀ B ∈  𝓑, ∀ x ∈ B, ∃ B' ∈ 𝓑', x ∈ B' ⊆ B$.
 -/
-TheoremDoc criterio_familia_abiertos_base as "criterio_familia_abiertos_base" in "Bases"
+TheoremDoc topo.criterio_familia_abiertos_base as "criterio_familia_abiertos_base" in "Bases"
 
 Statement criterio_familia_abiertos_base (B' : Set (Set X)) (hB' : B' ⊆ abiertos) :
     base B' ↔ ∀ U ∈ B, ∀ x ∈ U, ∃ U' ∈ B', x ∈ U' ∧ U' ⊆ U := by
@@ -93,3 +96,5 @@ Statement criterio_familia_abiertos_base (B' : Set (Set X)) (hB' : B' ⊆ abiert
         apply hU'V
         Hint (hidden := true) "El objetivo es exactamente una hipótesis."
         exact hy
+
+end topo

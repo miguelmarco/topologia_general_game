@@ -1,5 +1,5 @@
 import Game.Levels.Clausura.ClausuraUnion
-open espacio_topologico Set Function
+
 
 World "Clausura"
 Level 10
@@ -10,13 +10,15 @@ La clausura de un conjunto $A$ es el conjunto de los $x$ para los
 que $X \\setminus A$ no es entorno.
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X] (A: Set X)
 
 
 /--
 Dados un conjunto  `A`, ` clausura A = { x | ¬ entorno x  Aᶜ}`
 -/
-TheoremDoc clausura_no_entorno as "clausura_no_entorno" in "Clausura"
+TheoremDoc topo.clausura_no_entorno as "clausura_no_entorno" in "Clausura"
 
 Statement clausura_no_entorno : clausura A = { x | ¬ entorno x  Aᶜ} := by
   Hint (hidden := true) "Para demostrar la igualdad entre dos conjuntos,
@@ -83,3 +85,5 @@ Statement clausura_no_entorno : clausura A = { x | ¬ entorno x  Aᶜ} := by
     fconstructor
     · exact hxU
     · exact hn
+
+end topo

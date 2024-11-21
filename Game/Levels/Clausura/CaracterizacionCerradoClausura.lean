@@ -1,5 +1,4 @@
 import Game.Levels.Clausura.ClausuraSubconjunto
-open espacio_topologico Set Function
 
 World "Clausura"
 Level 7
@@ -9,13 +8,15 @@ Introduction "
 Un conjunto es cerrado si y sólo si es igual a su clausura.
 "
 
+namespace topo
+open topo espacio_topologico Set
 variable {X : Type} [espacio_topologico X] (A : Set X)
 
 
 /--
 Con conjunto `A`, es cerrado si y sólo si `clausura A = A`
 -/
-TheoremDoc caracterizacion_cerrado_clausura as "caracterizacion_cerrado_clausura" in "Clausura"
+TheoremDoc topo.caracterizacion_cerrado_clausura as "caracterizacion_cerrado_clausura" in "Clausura"
 
 Statement caracterizacion_cerrado_clausura : A ∈ cerrados ↔  clausura A = A := by
   Hint (hidden := true) "Separa el objetivo en dos con `fconstructor`."
@@ -47,3 +48,5 @@ Statement caracterizacion_cerrado_clausura : A ∈ cerrados ↔  clausura A = A 
     rw [← h]
     Hint (hidden := true) "Un resultado previo te asegura justo lo que quieres."
     apply clausura_cerrado
+
+end topo
