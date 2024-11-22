@@ -1,4 +1,4 @@
-import Game.Levels.Interior.InteriorContenido
+import Game.Levels.Interior.InteriorMonotono
 Title "Interior"
 
 Introduction "
