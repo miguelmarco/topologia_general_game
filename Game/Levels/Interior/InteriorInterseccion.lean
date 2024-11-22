@@ -59,19 +59,17 @@ Statement interior_interseccion (A B: Set X) : interior (A ∩ B) = interior A �
       · Hint (hidden := true) "Sabemos que el interior de algo siempre es abierto."
         apply interior_abierto
     Hint (hidden := true) "Aquí tendrás que tomar un elemento arbitrario con `intro`."
-    intro x hx
-    choose hxa hxb using hx
+    intro y hy
+    Hint (hidden := true) "Puedes separar `{hy}` en dos hipótesis con `choose` o `cases'`."
+    choose hya hyb using hy
     fconstructor
-    · apply interior_contenido
-      exact hxa
-    · apply interior_contenido
-      exact hxb
-
-
-
-
-
-
-
+    · Hint (hidden := true) "Puedes aplicar que el interior de un conjunto está contenido
+       en el conjunto."
+      apply interior_contenido
+      exact hya
+    · Hint (hidden := true) "Puedes aplicar que el interior de un conjunto está contenido
+       en el conjunto."
+      apply interior_contenido
+      exact hyb
 
 end topo
