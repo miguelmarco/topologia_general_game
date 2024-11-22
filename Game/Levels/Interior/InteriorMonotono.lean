@@ -17,7 +17,7 @@ variable {X : Type} [espacio_topologico X]
 Dados subconjuntos `A` y `B`  tales que `A ⊆ B`,
 `interior_monotono` dice que `interior A ⊆ interior B` .
 -/
-TheoremDoc topo.interior_monotono as "interior_contiene_abierto" in "Interior"
+TheoremDoc topo.interior_monotono as "interior_monotono" in "Interior"
 
 
 Statement interior_monotono (A B : Set X) (h : A ⊆ B): interior A ⊆ interior B := by

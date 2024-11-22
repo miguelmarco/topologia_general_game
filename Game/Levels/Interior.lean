@@ -1,4 +1,4 @@
-import Game.Levels.Interior.InteriorMonotono
+import Game.Levels.Interior.InteriorIdempotente
 Title "Interior"
 
 Introduction "
