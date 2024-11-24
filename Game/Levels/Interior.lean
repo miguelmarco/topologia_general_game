@@ -1,4 +1,4 @@
-import Game.Levels.Interior.ComplementarioInterior
+import Game.Levels.Interior.ComplementarioClausura
 Title "Interior"
 
 Introduction "
