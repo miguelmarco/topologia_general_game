@@ -30,7 +30,7 @@ TheoremTab "Continuidad"
 Si `f : X → Y` es una aplicación entre espacios topológicos, `def_continua`
 dice que `continua f ↔ ∀ U ∈ abiertos, f ⁻¹' U ∈ abiertos`.
 -/
-TheoremDoc topo.def_continua as "def_continua" in "Lemas-definición"
+TheoremDoc topo.def_continua as "def_continua" in "lemas-definición"
 
 theorem def_continua : continua f ↔ ∀ U ∈ abiertos, f ⁻¹' U ∈ abiertos := by rfl
 
