@@ -1,4 +1,4 @@
-import Game.Levels.Interior.InteriorInterseccion
+import Game.Levels.Interior.ComplementarioInterior
 Title "Interior"
 
 Introduction "
