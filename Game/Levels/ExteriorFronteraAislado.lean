@@ -1,4 +1,4 @@
-import Game.Levels.ExteriorFronteraAislado.CaracterizacionExterior
+import Game.Levels.ExteriorFronteraAislado.Frontera
 Title "Exterior, frontera y puntos aislados"
 
 Introduction "

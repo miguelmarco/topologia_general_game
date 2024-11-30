@@ -21,7 +21,7 @@ theorem def_exterior : exterior A = interior Aᶜ := rfl
 Dado un conjunto `A` en un espacio topológico,
 `def_exterior A` dice que `exterior A = interior Aᶜ`.
 -/
-TheoremDoc topo.def_exterior as "union_interior" in "lemas-definición"
+TheoremDoc topo.def_exterior as "def_exterior" in "lemas-definición"
 
 /--
 El exterior de un conjunto es el interior de su complementario.
