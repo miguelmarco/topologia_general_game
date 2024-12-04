@@ -1,4 +1,4 @@
-import Game.Levels.ExteriorFronteraAislado.ClausuraUnionInteriorFrontera
+import Game.Levels.ExteriorFronteraAislado.Aislado
 Title "Exterior, frontera y puntos aislados"
 
 Introduction "
