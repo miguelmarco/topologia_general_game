@@ -41,25 +41,8 @@ theorem def_aislados : aislados A = {x : X | ∃ U ∈ abiertos, U ∩ A = {x}} 
 TheoremDoc topo.def_aislados as "def_aislados" in "Exterior/Frontera/Aislado"
 
 
-def derivado := {x : X | ∀ U ∈ abiertos,  x ∈ U →  ∃ y, y ≠ x ∧  y ∈ U ∩ A }
 
-
-/--
-El derivado de un conjunto `A` son los puntos `x` tales que para todo
-abierto `U` conteniendo a `x` , `( U \ {x}) ∩ A ≠ ∅`
--/
-DefinitionDoc derivado as "derivado"
-
-theorem def_derivado:  derivado A =  {x : X | ∀ U ∈ abiertos, x ∈ U →  ∃ y , y ≠ x ∧  y ∈ U ∩ A } := by
-  rfl
-
-/--
-`def_derivado A` dice que `derivado A =  {x : X | ∀ U ∈ abiertos,  x ∈ U →   ∃ y , y ≠ x ∧  y ∈ U ∩ A }`
--/
-TheoremDoc topo.def_derivado as "def_derivado" in "Exterior/Frontera/Aislado"
-
-
-NewTheorem topo.def_derivado topo.def_aislados
+NewTheorem topo.def_aislados
 
 /--
 Dado un conjunto `A` y un punto `x`
@@ -137,10 +120,6 @@ Statement no_aislado_sii (x : X)  : x ∉ aislados A ↔ x ∉ A ∨  ∀ U ∈ 
       choose y hyx  hyU hyA using h2
       Hint (hidden := true) "¿Qué elemento de `{A}` puedes usar?"
       use y
-
-
-
-
 
 
 end topo
