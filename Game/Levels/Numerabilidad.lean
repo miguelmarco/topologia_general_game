@@ -1,4 +1,4 @@
-import Game.Levels.Numerabilidad.IAN
+import Game.Levels.Numerabilidad.Aglomeracion
 Title "Numerabilidad"
 
 Introduction "
