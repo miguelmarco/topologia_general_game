@@ -1,4 +1,4 @@
-import Game.Levels.Numerabilidad.Aglomeracion
+import Game.Levels.Numerabilidad.Truncadas
 Title "Numerabilidad"
 
 Introduction "
