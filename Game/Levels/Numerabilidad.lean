@@ -1,4 +1,4 @@
-import Game.Levels.Numerabilidad.Truncadas
+import Game.Levels.Numerabilidad.LimiteClausura
 Title "Numerabilidad"
 
 Introduction "

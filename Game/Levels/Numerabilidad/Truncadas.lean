@@ -58,7 +58,7 @@ es límite de `s`.
 -/
 TheoremDoc topo.limite_truncada as "limite_truncada" in "Numerabilidad"
 
-Statement limite_truncada (s s9 : ℕ → X) (h : truncada s s') (x : X) :
+Statement limite_truncada {s s' : ℕ → X} (h : truncada s s') (x : X) :
     limite s' x ↔ limite s x := by
   Hint (hidden := true) "Puede ser útil reescribir la definición de truncada en `{h}`."
   rw [def_truncada] at h
