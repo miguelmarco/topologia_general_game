@@ -1,7 +1,7 @@
 import Game.Levels.Numerabilidad.Truncadas
 
-World "Numerabilidad"
-Level 5
+World "Limites"
+Level 4
 Title "Sucesiones asintóticas."
 
 Introduction "
@@ -31,7 +31,7 @@ theorem def_asintotica (s₁ : ℕ → X) (s₂ : ℕ → X) : asintotica s₁ s
 Dadas dos sucesiones `s₁` y `s₂`, `def_asintotica s₁ s₂` dice que
 `asintotica s₁ s₂ ↔ ∃ s, (truncada s₁ s ∧ truncada s₂ s)`.
 -/
-TheoremDoc topo.def_asintotica as "def_asintotica" in "Numerabilidad"
+TheoremDoc topo.def_asintotica as "def_asintotica" in "Limites"
 
 NewTheorem topo.def_asintotica
 
@@ -39,7 +39,7 @@ NewTheorem topo.def_asintotica
 Si `s₁` y `s₂` son sucesiones asintóticas, un punto es límite de `s₁` si y solo si
 es límite de `s₂`.
 -/
-TheoremDoc topo.limite_asintotica as "limite_asintotica" in "Numerabilidad"
+TheoremDoc topo.limite_asintotica as "limite_asintotica" in "Limites"
 
 Statement limite_asintotica (s1 s2 : ℕ → X) (h : asintotica s1 s2) (x : X) :
     limite s1 x ↔ limite s2 x := by

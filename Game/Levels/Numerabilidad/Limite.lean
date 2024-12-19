@@ -1,7 +1,7 @@
-import Game.Levels.Numerabilidad.IAN
+import Game.Levels.ExteriorFronteraAislado.Derivado
 
-World "Numerabilidad"
-Level 2
+World "Limites"
+Level 1
 Title "Límites."
 
 Introduction "
@@ -21,6 +21,32 @@ que si `f : ℕ → ℕ` es una aplicación creciente, entonces para todo `n`, s
 `f n ≥ n`.
 "
 
+
+
+/--
+La táctica `let` permite definir un objeto para ser usado
+dentro de una demostración.
+
+`let a := expr` define un objeto llamado `a`, definido como el contenido de
+la expresión `expr`.
+
+`let a : tipo`  define un objeto llamado `a` de tipo `tipo`, y crea un nuevo
+objetivo en el que debe definirse. Esto es especialmente útil
+si se quiere definir una función.
+-/
+TacticDoc «let»
+
+/--
+La táctica `clear` permite limpiar hipótesis del estado
+de la demostración. Esto puede ser útil para mantener
+el estado limpio de hipótesis que ya no se van a usar,
+pero también puede servir para evitar que algunas hipótesis
+se intenten generalizar en demostraciones por inducción.
+-/
+TacticDoc clear
+
+NewTactic «let» clear
+
 namespace topo
 open topo espacio_topologico Set Function Nat
 variable {X : Type} [espacio_topologico X]
@@ -29,7 +55,7 @@ variable {X : Type} [espacio_topologico X]
 Si `f : ℕ → ℕ` es una aplicación creciente, entonces para todo `n`, se tiene que
 `f n ≥ n`.
 -/
-TheoremDoc topo.subsucesion_creciente as "subsucesion_creciente" in "Numerabilidad"
+TheoremDoc topo.subsucesion_creciente as "subsucesion_creciente" in "Limites"
 
 theorem subsucesion_creciente {f : ℕ → ℕ } (h : ∀ n m, n < m → f n < f m) (n : ℕ) :
     f n ≥ n := by
@@ -87,13 +113,13 @@ theorem def_subsucesion (s1 : ℕ → X) ( s2 : ℕ → X)  : subsucesion s1 s2 
 Si `X` es un espacio_topológico, `s` una sucesión
 y `x` un punto, `def_limite s x` dice que  `limite s x ↔  ∀ U ∈ abiertos, x ∈ U →   ∃ (n0 : ℕ ), ∀ n ≥ n0 ,  (s n) ∈ U`.
 -/
-TheoremDoc topo.def_limite as "def_IAN" in "Numerabilidad"
+TheoremDoc topo.def_limite as "def_IAN" in "Limites"
 
 /--
 Si `X` es un espacio_topológico, `s` una sucesión
 y `x` un punto, `def_aglomearcion s x` dice que  `aglomeracion s x ↔ ∀ U ∈ abiertos, x ∈ U →  ∀ n0, ∃ n ≥ n0, s n ∈ U`.
 -/
-TheoremDoc topo.def_aglomeracion as "def_aglomeracion" in "Numerabilidad"
+TheoremDoc topo.def_aglomeracion as "def_aglomeracion" in "Limites"
 
 /--
 Si `s` y `s'` son dos sucesiones, `def_subsucesión s s'`
@@ -101,7 +127,7 @@ recoge la definición de que `s'` sea una subsucesión de `s`.
 
 Es decir, dice que `subsucesion s s' ↔ ∃ f : ℕ → ℕ, (∀ n m, n ≤ m → f n ≤ f m) ∧ s' = s ∘ f`.
 -/
-TheoremDoc topo.def_subsucesion as "def_subsucesion" in "Numerabilidad"
+TheoremDoc topo.def_subsucesion as "def_subsucesion" in "Limites"
 
 NewTheorem topo.subsucesion_creciente topo.def_limite topo.def_aglomeracion topo.def_subsucesion
 
@@ -109,7 +135,7 @@ NewTheorem topo.subsucesion_creciente topo.def_limite topo.def_aglomeracion topo
 Los puntos límite de una sucesión están contenidos en los puntos límite
 de cualquier subsucesión suya.
 -/
-TheoremDoc topo.limite_subsucesion as "limite_subsucesion" in "Numerabilidad"
+TheoremDoc topo.limite_subsucesion as "limite_subsucesion" in "Limites"
 
 Statement limite_subsucesion (s1 s2 : ℕ → X) (h : subsucesion s1 s2) (x : X) :
     limite s1 x → limite s2 x := by

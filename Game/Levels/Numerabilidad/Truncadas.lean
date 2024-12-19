@@ -1,7 +1,7 @@
 import Game.Levels.Numerabilidad.Aglomeracion
 
-World "Numerabilidad"
-Level 4
+World "Limites"
+Level 3
 Title "Subsucesiones truncadas."
 
 Introduction "
@@ -48,7 +48,7 @@ theorem def_truncada (s : ℕ → X) (s' : ℕ → X) : truncada s s' ↔ ∃ n0
 Dadas dos sucesiones `s` y `s'`, `def_truncada s s'` dice que
 `truncada s s' ↔ ∃ n0, ∀ n, s' n = s (n + n0)`.
 -/
-TheoremDoc topo.def_truncada as "def_truncada" in "Numerabilidad"
+TheoremDoc topo.def_truncada as "def_truncada" in "Limites"
 
 NewTheorem topo.def_truncada
 
@@ -56,7 +56,7 @@ NewTheorem topo.def_truncada
 Si `s'` es una sucesión truncada de `s`, un punto es límite de `s'` si y solo si
 es límite de `s`.
 -/
-TheoremDoc topo.limite_truncada as "limite_truncada" in "Numerabilidad"
+TheoremDoc topo.limite_truncada as "limite_truncada" in "Limites"
 
 Statement limite_truncada {s s' : ℕ → X} (h : truncada s s') (x : X) :
     limite s' x ↔ limite s x := by

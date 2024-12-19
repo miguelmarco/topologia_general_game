@@ -2,10 +2,31 @@ import Game.Levels.ExteriorFronteraAislado.Derivado
 
 World "Numerabilidad"
 Level 1
-Title "Espacios separables."
+Title "Primer axioma de numerabilidad."
 
 Introduction "
-Un espacio es separable si existe un denso numerable
+Un espacio es separable si existe un denso numerable.
+
+Un espacio topológico `X` cumple el *primer axioma de numerabilidad* (`IAN`)
+si cada punto tiene una base contable de entornos.
+
+En esta demostración necesitaremos dos nuevas tácticas:
+
+La táctica `clear` permite limpiar hipótesis del estado
+de la demostración. Esto puede ser útil para mantener
+el estado limpio de hipótesis que ya no se van a usar,
+pero también puede servir para evitar que algunas hipótesis
+se intenten generalizar en demostraciones por inducción.
+
+La táctica `let` permite definir un objeto para ser usado
+dentro de una demostración.
+
+`let a := expr` define un objeto llamado `a`, definido como el contenido de
+la expresión `expr`.
+
+`let a : tipo`  define un objeto llamado `a` de tipo `tipo`, y crea un nuevo
+objetivo en el que debe definirse. Esto es especialmente útil
+si se quiere definir una función.
 "
 
 namespace topo
@@ -48,7 +69,7 @@ Si `X` es un espacio_topológico, `def_IAN X` dice que
 -/
 TheoremDoc topo.def_IAN as "def_IAN" in "Numerabilidad"
 
-NewTheorem topo.def_separable topo.def_IAN
+
 
 /--
 La táctica `let` permite definir un objeto para ser usado
@@ -73,6 +94,67 @@ se intenten generalizar en demostraciones por inducción.
 TacticDoc clear
 
 NewTactic «let» clear
+
+theorem caracterizacion_IAN (X : Type) [espacio_topologico X] : IAN X ↔ ∀ (x : X), ∃ (Bx : Set (Set X)), (base_de_entornos x Bx ∧ Set.Countable Bx) := by
+  fconstructor
+  · intro h x
+    specialize h x
+    choose f hf using h
+    use {(f n) | n  : ℕ }
+    fconstructor
+    · exact hf
+    · rw [@countable_iff_exists_subset_range]
+      use f
+      intro U hU
+      choose n hn using hU
+      use n
+  · intro h
+    intro x
+    specialize h x
+    choose Bx hBx hcont using h
+    choose hBx1 hBx2 using hBx
+    rw [@countable_iff_exists_subset_range] at hcont
+    choose f hf using hcont
+    fconstructor
+    intro n
+    by_cases hcas : f n ∈ Bx
+    · exact f n
+    · exact univ
+    fconstructor
+    · intro B hB
+      choose n hn using hB
+      by_cases hcas : f n ∈ Bx
+      · simp only [hcas, ↓reduceDite] at hn
+        rw [← hn]
+        apply hBx1
+        exact hcas
+      · simp only [hcas, ↓reduceDite] at hn
+        use univ
+        fconstructor
+        · exact abierto_total
+        · simp only [mem_univ, univ_subset_iff, true_and,← hn]
+    · intro N hxN
+      specialize hBx2 N hxN
+      choose B hB hBN using hBx2
+      have h2 := hf hB
+      choose n hn using h2
+      use B
+      fconstructor
+      · use n
+        rw [← hn]
+        simp only [dite_eq_ite, ite_eq_left_iff]
+        rw [hn]
+        simp only [hB, not_true_eq_false, IsEmpty.forall_iff]
+      exact hBN
+
+/--
+`caracterizacion_IAN` dice que un espacio es `IAN` si y solo si
+ `∀ x , ∃ Bx, (base_de_entornos x Bx ∧ Set.Countable Bx)`.
+-/
+TheoremDoc topo.caracterizacion_IAN as "caracterizacion_IAN" in "Numerabilidad"
+
+NewTheorem topo.def_separable topo.def_IAN
+
 
 /--
 En un espacio `IAN`, cada punto admite una base de entornos contable y encajada

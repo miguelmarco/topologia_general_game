@@ -1,14 +1,13 @@
 import Game.Levels.Numerabilidad.Asintotica
 
-World "Numerabilidad"
-Level 6
+World "Limites"
+Level 5
 Title "Aglomeración en la clausura."
 
 Introduction "
 Veamos que, si una sucesión `s` está contenida en un subconjunto `A`,
 un punto de aglomeración de `s` debe estar en la clausura de `A`.
 "
-
 
 namespace topo
 open topo espacio_topologico Set Function Nat
@@ -19,7 +18,7 @@ variable {X : Type} [espacio_topologico X]
 Si una sucesión `s` está contenida en un subconjunto `A`, y `x` es un punto
 de aglomeración de `s`, entonces `x` debe estar en la clausura de `A`.
 -/
-TheoremDoc topo.aglomeracion_clausura as "aglomeracion_clausura" in "Numerabilidad"
+TheoremDoc topo.aglomeracion_clausura as "aglomeracion_clausura" in "Limites"
 
 Statement aglomeracion_clausura {s : ℕ → X} {A : Set X} {x : X} (hs : ∀ n, s n ∈ A):
     aglomeracion s x → x ∈ clausura A := by

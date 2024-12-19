@@ -1,7 +1,7 @@
 import Game.Levels.Numerabilidad.Limite
 
-World "Numerabilidad"
-Level 3
+World "Limites"
+Level 2
 Title "Puntos de aglomeración y subsucesiones."
 
 Introduction "
@@ -19,7 +19,7 @@ variable {X : Type} [espacio_topologico X]
 Si `s'` es una subsucesión de `s`, entonces los límites de `s'` son
 puntos de aglomeración de `s`.
 -/
-TheoremDoc topo.aglomeracion_subsucesion as "aglomeracion_subsucesion" in "Numerabilidad"
+TheoremDoc topo.aglomeracion_subsucesion as "aglomeracion_subsucesion" in "Limites"
 
 Statement aglomeracion_subsucesion (s1 s2 : ℕ → X) (h : subsucesion s1 s2) (x : X) :
     limite s2 x → aglomeracion s1 x := by

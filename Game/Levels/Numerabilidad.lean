@@ -1,5 +1,5 @@
 import Game.Levels.Numerabilidad.LimiteClausura
-Title "Numerabilidad"
+Title "Limites"
 
 Introduction "
 Los espacios separables son los que tienen un denso numerable.
