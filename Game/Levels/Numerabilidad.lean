@@ -1,4 +1,4 @@
-import Game.Levels.Numerabilidad.ClausuraSucesion
+import Game.Levels.Numerabilidad.ContinuaLimite
 Title "Limites"
 
 Introduction "
