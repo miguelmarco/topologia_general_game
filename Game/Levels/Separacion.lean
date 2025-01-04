@@ -1,4 +1,4 @@
-import Game.Levels.Separacion.SepararSiiClausura
+import Game.Levels.Separacion.T1
 Title "Separacion"
 
 Introduction "
