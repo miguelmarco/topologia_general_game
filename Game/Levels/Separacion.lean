@@ -1,4 +1,4 @@
-import Game.Levels.Separacion.T1
+import Game.Levels.Separacion.CaracterizacionT2
 Title "Separacion"
 
 Introduction "
