@@ -1,4 +1,4 @@
-import Game.Levels.Productos.InteriorProducto
+import Game.Levels.Productos.SeparableProducto
 Title "Productos"
 
 Introduction "
