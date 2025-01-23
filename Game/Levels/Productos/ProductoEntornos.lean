@@ -19,7 +19,7 @@ variable {X Y : Type} [espacio_topologico X] [espacio_topologico Y]
 Si `x` e `y` son puntos en espacios topológicos `X` e `Y`, y
 `Nx`, `Ny` son entornos suyos, `Nx ×ˢ Ny` es entorno de `(x, y)`.
 -/
-TheoremDoc topo.producto_entornos as "productoentorno_s" in "Productos"
+TheoremDoc topo.producto_entornos as "producto_entornos" in "Productos"
 
 Statement producto_entornos
   {x : X}
@@ -65,6 +65,7 @@ Statement producto_entornos
     exact ht1
   · apply hVN
     exact ht2
+
 
 
 end topo
