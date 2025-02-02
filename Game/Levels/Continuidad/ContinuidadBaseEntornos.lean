@@ -4,7 +4,7 @@ World "Continuidad"
 Level 5
 Title "Continuidad en términos de bases de entornos."
 
-Introduction "Veamos ahora que, si tenemos una subbase de entornos
+Introduction "Veamos ahora que, si tenemos una base de entornos
 en el espacio de llegada, basta ver que se cumple la definición de
 continuidad puntual para entornos básicos.
 "

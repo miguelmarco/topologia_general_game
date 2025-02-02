@@ -5,7 +5,7 @@ Level 6
 Title "Corolario de continuidad en términos de bases de entornos."
 
 Introduction "Ahora vamos a ver una consecuencia directa de los
-resultados anteriores: si tenemos una subbase de entornos
+resultados anteriores: si tenemos una base de entornos
 en el espacio de llegada, basta ver que se cumple la definición de
 continuidad para entornos básicos.
 "
