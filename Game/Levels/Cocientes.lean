@@ -1,4 +1,4 @@
-import Game.Levels.Cocientes.SaturadoAbierto
+import Game.Levels.Cocientes.SaturadoCerrado
 Title "Cocientes"
 
 Introduction "

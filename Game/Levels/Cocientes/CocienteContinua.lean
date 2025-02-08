@@ -15,7 +15,7 @@ open topo espacio_topologico Set
 
 abbrev Equiv := Setoid
 
-variable (X : Type) [espacio_topologico X] (R : Equiv X)
+variable {X : Type} [espacio_topologico X] [R : Equiv X]
 
 notation3 G:35 " /' " H:35 => @Quotient G H
 
