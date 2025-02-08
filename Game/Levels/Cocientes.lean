@@ -1,4 +1,4 @@
-import Game.Levels.Cocientes.SaturadoCerrado
+import Game.Levels.Cocientes.PropiedadUniversal
 Title "Cocientes"
 
 Introduction "
