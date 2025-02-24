@@ -1,4 +1,4 @@
-import Game.Levels.Cocientes.PropiedadUniversal
+import Game.Levels.Cocientes.CocienteIAN
 Title "Cocientes"
 
 Introduction "
@@ -21,6 +21,9 @@ definición.
 El hecho de que dos elementos de `x` estén relacionados por la relación
 se denota `x ≈ y` (el símbolo `≈` se obtiene tecleando `\\approx`). El teorema
 `def_clase_equiv` dice que `⟦x⟧ = ⟦y⟧ ↔ x ≈ y`.
+
+Cada clase de equivalencia de `X /' R` tiene un representante. El teorema
+`existe_representante` afirma esto mismo.
 
 El conjunto cociente `X /' R` tiene una estructura de espacio topológico,
 donde un conjunto `S` es de abierto si  `{x | ⟦x⟧ ∈ S}` es un abierto. El

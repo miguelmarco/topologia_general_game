@@ -51,12 +51,13 @@ instance :  espacio_topologico (X /' R) where
 
 def π {X : Type} [R : Setoid X] : X → Quotient R := fun x ↦ ⟦x⟧
 
-
 theorem def_abierto_cociente (U : Set (Quotient R)) : U ∈ abiertos ↔ {x | ⟦x⟧ ∈ U} ∈ abiertos :=  by rfl
 
 theorem def_π (x : X) : ((π x) : (Quotient R)) = ⟦x⟧ := by rfl
 
 theorem def_clase_equiv (x y : X) : (⟦x⟧  : Quotient R) = ⟦y⟧ ↔ x ≈ y := Quotient.eq
+
+theorem existe_representante (c : Quotient R) : ∃ (x : X), ⟦x⟧ = c := Quotient.exists_rep c
 
 TheoremTab "Cocientes"
 
@@ -79,7 +80,13 @@ Si `x` e `y` son elementos de un conjunto con una relación de equivalencia
 -/
 TheoremDoc topo.def_clase_equiv as "def_clase_equiv" in "Cocientes"
 
-NewTheorem topo.def_abierto_cociente topo.def_π topo.def_clase_equiv
+/--
+Si `R` es una relación de equivalencia en `X`, y `c : X /' R` es una clase
+de equivalencia, `existe_representante c` dice que `∃ x, ⟦x⟧ = c`.
+-/
+TheoremDoc topo.existe_representante as "existe_representante" in "Cocientes"
+
+NewTheorem topo.def_abierto_cociente topo.def_π topo.def_clase_equiv topo.existe_representante
 
 /--
 Si `R` es una relación de equivalencia en un espacio topológico `X`,
