@@ -1,4 +1,4 @@
-import Game.Levels.Cocientes.CocienteIAN
+import Game.Levels.Cocientes.CocienteT1
 Title "Cocientes"
 
 Introduction "
