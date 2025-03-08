@@ -57,7 +57,7 @@ theorem def_π (x : X) : ((π x) : (Quotient R)) = ⟦x⟧ := by rfl
 
 theorem def_clase_equiv (x y : X) : (⟦x⟧  : Quotient R) = ⟦y⟧ ↔ x ≈ y := Quotient.eq
 
-theorem existe_representante (c : Quotient R) : ∃ (x : X), ⟦x⟧ = c := Quotient.exists_rep c
+theorem existe_representante : ∀ (c : Quotient R), ∃ (x : X), ⟦x⟧ = c := Quotient.exists_rep
 
 TheoremTab "Cocientes"
 
@@ -66,19 +66,19 @@ Si `R` es una relación de equivalencia en un espacio topológico `X`,
 y `U` es un conjunto en el cociente `X / R`, entonces
 `U ∈ abiertos ↔ {x | ⟦x⟧ ∈ U} ∈ abiertos`.
 -/
-TheoremDoc topo.def_abierto_cociente as "def_abierto_cociente" in "Cocientes"
+TheoremDoc topo.def_abierto_cociente as "def_abierto_cociente" in "lemas-definición"
 
 /--
 Dado un punto `x`, de un espacio topológico `X` con una relación de equivalencia
 `R`; si `π : X → (Quotient R)` es la proyección, entonces `π x = ⟦x⟧`.
 -/
-TheoremDoc topo.def_π as "def_π" in "Cocientes"
+TheoremDoc topo.def_π as "def_π" in "lemas_definición"
 
 /--
 Si `x` e `y` son elementos de un conjunto con una relación de equivalencia
 `R`, `⟦x⟧ = ⟦y⟧ ↔  x ≈ y`.
 -/
-TheoremDoc topo.def_clase_equiv as "def_clase_equiv" in "Cocientes"
+TheoremDoc topo.def_clase_equiv as "def_clase_equiv" in "lemas-definición"
 
 /--
 Si `R` es una relación de equivalencia en `X`, y `c : X /' R` es una clase

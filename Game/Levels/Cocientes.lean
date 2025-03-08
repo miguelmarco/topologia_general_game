@@ -1,4 +1,4 @@
-import Game.Levels.Cocientes.CocienteT1
+import Game.Levels.Cocientes.SupContCerIdent
 Title "Cocientes"
 
 Introduction "
