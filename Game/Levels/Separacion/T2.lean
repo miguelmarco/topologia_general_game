@@ -26,7 +26,7 @@ NewDefinition T2
 Dado un espacio topológico `X`, `def_T2 X` dice que
 `T2 X ↔ ∀ (x y : X), x ≠ y →  ∃ (U V  : Set X), U ∈ abiertos ∧ V ∈ abiertos ∧  U ∩ V = ∅ ∧ x ∈ U ∧ y ∉ V`
 -/
-TheoremDoc topo.def_T2 as "def_T2" in "Separación"
+TheoremDoc topo.def_T2 as "def_T2" in "lemas-definición"
 
 theorem def_T2 (X : Type) [espacio_topologico X] : T2 X ↔ ∀ (x y : X), x ≠ y → ∃ (U V  : Set X), (U ∈ abiertos ∧ V ∈ abiertos ∧  U ∩ V = ∅ ∧ x ∈ U ∧ y ∈  V ):= by
   rfl

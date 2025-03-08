@@ -72,7 +72,7 @@ TheoremDoc topo.def_abierto_cociente as "def_abierto_cociente" in "lemas-definic
 Dado un punto `x`, de un espacio topológico `X` con una relación de equivalencia
 `R`; si `π : X → (Quotient R)` es la proyección, entonces `π x = ⟦x⟧`.
 -/
-TheoremDoc topo.def_π as "def_π" in "lemas_definición"
+TheoremDoc topo.def_π as "def_π" in "lemas-definición"
 
 /--
 Si `x` e `y` son elementos de un conjunto con una relación de equivalencia

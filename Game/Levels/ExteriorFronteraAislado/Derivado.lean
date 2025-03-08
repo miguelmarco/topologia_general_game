@@ -31,7 +31,7 @@ theorem def_derivado:  derivado A =  {x : X | ∀ U ∈ abiertos, x ∈ U →  �
 /--
 `def_derivado A` dice que `derivado A =  {x : X | ∀ U ∈ abiertos,  x ∈ U →   ∃ y , y ≠ x ∧  y ∈ U ∩ A }`
 -/
-TheoremDoc topo.def_derivado as "def_derivado" in "Exterior/Frontera/Aislado"
+TheoremDoc topo.def_derivado as "def_derivado" in "lemas-definición"
 
 
 NewTheorem topo.def_derivado

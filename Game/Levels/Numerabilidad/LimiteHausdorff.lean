@@ -28,7 +28,7 @@ DefinitionDoc Hausdorff as "Hausdorff"
 /--
 Dado un espacio topológico `X`, `def_hausdorff X` dice que `Hausdorff X ↔  ∀ (x y : X), x ≠ y → ∃ (U V : Set X), topo.entorno x U ∧ topo.entorno y V ∧ U ∩ V = ∅`.
 -/
-TheoremDoc topo.def_hausdorff as "def_hausdorff" in "Limites"
+TheoremDoc topo.def_hausdorff as "def_hausdorff" in "lemas-definición"
 
 theorem def_hausdorff : Hausdorff X ↔  ∀ (x y : X), x ≠ y → ∃ (U V : Set X), topo.entorno x U ∧ topo.entorno y V ∧ U ∩ V = ∅ := by
   rfl

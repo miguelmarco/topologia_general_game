@@ -91,7 +91,7 @@ theorem def_abierto_producto (S : Set (X × Y)) :
 Dados dos espacios topológicos `X, Y` y un conjunto `S ⊆ X × Y`, `def_abierto_producto S`
 dice que `S ∈ abiertos ↔ ∀ z ∈ S, ∃ U V, U ∈ abiertos ∧ V ∈ abiertos ∧ z ∈ U ×ˢ V ∧ U ×ˢ V ⊆ S`.
 -/
-TheoremDoc topo.def_abierto_producto as "def_abierto_producto" in "Productos"
+TheoremDoc topo.def_abierto_producto as "def_abierto_producto" in "lemas-definición"
 
 NewTheorem topo.def_abierto_producto
 

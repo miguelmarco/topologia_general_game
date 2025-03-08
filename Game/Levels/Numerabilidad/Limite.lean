@@ -113,13 +113,13 @@ theorem def_subsucesion (s1 : ℕ → X) ( s2 : ℕ → X)  : subsucesion s1 s2 
 Si `X` es un espacio_topológico, `s` una sucesión
 y `x` un punto, `def_limite s x` dice que  `limite s x ↔  ∀ U ∈ abiertos, x ∈ U →   ∃ (n0 : ℕ ), ∀ n ≥ n0 ,  (s n) ∈ U`.
 -/
-TheoremDoc topo.def_limite as "def_IAN" in "Limites"
+TheoremDoc topo.def_limite as "def_IAN" in "lemas-definición"
 
 /--
 Si `X` es un espacio_topológico, `s` una sucesión
 y `x` un punto, `def_aglomearcion s x` dice que  `aglomeracion s x ↔ ∀ U ∈ abiertos, x ∈ U →  ∀ n0, ∃ n ≥ n0, s n ∈ U`.
 -/
-TheoremDoc topo.def_aglomeracion as "def_aglomeracion" in "Limites"
+TheoremDoc topo.def_aglomeracion as "def_aglomeracion" in "lemas-definición"
 
 /--
 Si `s` y `s'` son dos sucesiones, `def_subsucesión s s'`
@@ -127,7 +127,7 @@ recoge la definición de que `s'` sea una subsucesión de `s`.
 
 Es decir, dice que `subsucesion s s' ↔ ∃ f : ℕ → ℕ, (∀ n m, n ≤ m → f n ≤ f m) ∧ s' = s ∘ f`.
 -/
-TheoremDoc topo.def_subsucesion as "def_subsucesion" in "Limites"
+TheoremDoc topo.def_subsucesion as "def_subsucesion" in "lemas-definición"
 
 NewTheorem topo.subsucesion_creciente topo.def_limite topo.def_aglomeracion topo.def_subsucesion
 

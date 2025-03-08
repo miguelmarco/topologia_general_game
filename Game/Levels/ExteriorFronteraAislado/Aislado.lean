@@ -38,7 +38,7 @@ theorem def_aislados : aislados A = {x : X | ∃ U ∈ abiertos, U ∩ A = {x}} 
 /--
 `def_aislados A` dice que `aislados A = {x : X | ∃ U ∈ abiertos, U ∩ A = {x}}`
 -/
-TheoremDoc topo.def_aislados as "def_aislados" in "Exterior/Frontera/Aislado"
+TheoremDoc topo.def_aislados as "def_aislados" in "lemas-definición"
 
 
 

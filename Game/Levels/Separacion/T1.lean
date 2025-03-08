@@ -29,7 +29,7 @@ NewDefinition T1
 Dado un espacio topológico `X`, `def_T1 X` dice que
 `T1 X ↔ ∀ (x y : X), ∃ U ∈ abiertos, x ∈ U ∧ y ∉ U`
 -/
-TheoremDoc topo.def_T1 as "def_T1" in "Separación"
+TheoremDoc topo.def_T1 as "def_T1" in "lemas-definición"
 
 theorem def_T1 (X : Type) [espacio_topologico X] : T1 X ↔ ∀ (x y : X), x ≠ y →  ∃ U ∈ abiertos, x ∈ U ∧ y ∉ U := by
   rfl

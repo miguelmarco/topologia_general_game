@@ -33,7 +33,7 @@ theorem caracterizacion_saturado (A : Set X) : saturado A = π ⁻¹' (π '' A) 
 Si `A` es un conjunto en un espacio con una relación de equivalencia,
 `def_saturado A` dice que `saturado A = {x | ∃ y ∈ A, y ≈ x}`.
 -/
-TheoremDoc topo.def_saturado as "def_saturado" in "Cocientes"
+TheoremDoc topo.def_saturado as "def_saturado" in "lemas-definición"
 
 /--
 Si `A` es un conjunto en un espacio con una relación de equivalencia,

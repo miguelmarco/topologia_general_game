@@ -29,7 +29,7 @@ theorem def_continua_en (x : X) : continua_en f x ↔ ∀ N , entorno (f x) N �
 Si `f : X → Y` es una aplicación entre espacios topológicos y `x` es un
 punto de `X`, `def_continua_en f x` dice que `continua_en f x ↔ ∀ N , entorno (f x) N → entorno x (f ⁻¹' N)`.
 -/
-TheoremDoc topo.def_continua_en as "def_continua_en" in "Continuidad"
+TheoremDoc topo.def_continua_en as "def_continua_en" in "lemas-definición"
 
 NewTheorem topo.def_continua_en
 

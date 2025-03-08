@@ -23,7 +23,7 @@ theorem def_homeomorfismo : homeomorfismo f ↔ continua f ∧ ∃ g : Y →  X,
 Si `f : X → Y` es una aplicación entre espacios topológicos, `def_homeomorfismo`
 dice que `homeomorfismo f ↔ continua f ∧ ∃ g : Y →  X, continua g ∧ g ∘ f = id ∧ f ∘ g = id `.
 -/
-TheoremDoc topo.def_homeomorfismo as "def_homeomorfismo" in "Continuidad"
+TheoremDoc topo.def_homeomorfismo as "def_homeomorfismo" in "lemas-definición"
 
 /--
 Una aplicación entre espacios topológicos es un *homeomorfismo*

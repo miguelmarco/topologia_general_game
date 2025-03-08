@@ -31,7 +31,7 @@ theorem def_asintotica (s₁ : ℕ → X) (s₂ : ℕ → X) : asintotica s₁ s
 Dadas dos sucesiones `s₁` y `s₂`, `def_asintotica s₁ s₂` dice que
 `asintotica s₁ s₂ ↔ ∃ s, (truncada s₁ s ∧ truncada s₂ s)`.
 -/
-TheoremDoc topo.def_asintotica as "def_asintotica" in "Limites"
+TheoremDoc topo.def_asintotica as "def_asintotica" in "lemas-definición"
 
 NewTheorem topo.def_asintotica
 

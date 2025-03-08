@@ -34,7 +34,7 @@ def puede_separar (A B : Set X) := ∃ (U V : Set X), U ∈ abiertos ∧ V ∈ a
 Dados dos conjuntos `A` y `B`, `def_puede_separar A B` dice que
 `puede_separar A B ↔ ∃ (U V), U ∈ abiertos ∧ V ∈ abiertos ∧ A ⊆ U ∧ B ⊆ V ∧ U ∩ V = ∅`
 -/
-TheoremDoc topo.def_puede_separar as "def_puede_separar" in "Separación"
+TheoremDoc topo.def_puede_separar as "def_puede_separar" in "lemas-definición"
 
 
 theorem def_puede_separar (A B : Set X) : puede_separar A B ↔ ∃ (U V : Set X), U ∈ abiertos ∧ V ∈ abiertos ∧ A ⊆ U ∧ B ⊆ V ∧ U ∩ V = ∅  := by

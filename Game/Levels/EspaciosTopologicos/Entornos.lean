@@ -35,7 +35,7 @@ lemma def_entorno (x : X) (E : Set X) : entorno x E ↔  ∃ U ∈ abiertos, x �
 En un espacio topológico, un conjunto `E` es entorno de un punto `x`
 si y solo si existe un abierto `U` tal que `x ∈ U` y `U ⊆ E`.
 -/
-TheoremDoc topo.def_entorno as "def_entorno" in "Espacios Topológicos"
+TheoremDoc topo.def_entorno as "def_entorno" in "lemas-definición"
 
 NewTheorem topo.def_entorno
 

@@ -65,7 +65,7 @@ TheoremTab "Numerabilidad"
 Si `X`  es un espacio topológico, `def_separable X`  dice que
 `separable X ↔ ∃ D , denso D ∧ contable D`.
 -/
-TheoremDoc topo.def_separable as "def_separable" in "Numerabilidad"
+TheoremDoc topo.def_separable as "def_separable" in "lemas-definición"
 
 theorem def_IAN (X : Type) [espacio_topologico X]: IAN X ↔ ∀ (x : X), ∃ B,  base_de_entornos x B ∧ contable B := by
   rfl
@@ -74,7 +74,7 @@ theorem def_IAN (X : Type) [espacio_topologico X]: IAN X ↔ ∀ (x : X), ∃ B,
 Si `X` es un espacio_topológico, `def_IAN X` dice que
 ` IAN X ↔ ∀ (x : X), ∃ B, base_de_entornos x B ∧ contable B`.
 -/
-TheoremDoc topo.def_IAN as "def_IAN" in "Numerabilidad"
+TheoremDoc topo.def_IAN as "def_IAN" in "lemas-definición"
 
 
 

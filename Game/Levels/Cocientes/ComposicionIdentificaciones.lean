@@ -57,7 +57,7 @@ Dada una aplicación `f : X → Y`,
 el teorema `def_equiv_inducida x₁ x₂` nos dice que, para la relación de equivalencia
 `∼f`,  se tiene que `∀ x₁ x₂, ⟦x₁⟧ = ⟦x₂⟧ ↔ f x₁ = f x₂`.
 -/
-TheoremDoc topo.def_equiv_inducida as "def_equiv_inducida" in "Cocientes"
+TheoremDoc topo.def_equiv_inducida as "def_equiv_inducida" in "lemas-definición"
 
 theorem identificacion_cociente (f : X → Y) (hf : identificacion f) : ∃ (h :  (X /' ∼f) → Y), homeomorfismo h ∧ f = h ∘ (@π X (equiv_inducida f))  := by
   let R := ∼f

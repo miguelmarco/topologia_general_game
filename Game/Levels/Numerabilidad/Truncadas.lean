@@ -48,7 +48,7 @@ theorem def_truncada (s : ℕ → X) (s' : ℕ → X) : truncada s s' ↔ ∃ n0
 Dadas dos sucesiones `s` y `s'`, `def_truncada s s'` dice que
 `truncada s s' ↔ ∃ n0, ∀ n, s' n = s (n + n0)`.
 -/
-TheoremDoc topo.def_truncada as "def_truncada" in "Limites"
+TheoremDoc topo.def_truncada as "def_truncada" in "lemas-definición"
 
 NewTheorem topo.def_truncada
 

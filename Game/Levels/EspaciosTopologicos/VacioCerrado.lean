@@ -40,7 +40,7 @@ DefinitionDoc cerrados as "cerrados"
 En un espacio topológico, un conjunto `C` es cerrado, si y sólo si su
 complementario es abierto.
 -/
-TheoremDoc topo.def_cerrado as "def_cerrado" in "Espacios Topológicos"
+TheoremDoc topo.def_cerrado as "def_cerrado" in "lemas-definición"
 
 NewTheorem topo.def_cerrado
 NewDefinition cerrados
