@@ -1,4 +1,4 @@
-import Game.Levels.Cocientes.SupContCerIdent
+import Game.Levels.Cocientes.IdentificacionSiiHomeomorfismo
 Title "Cocientes"
 
 Introduction "
