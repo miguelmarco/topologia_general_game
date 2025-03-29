@@ -1,5 +1,4 @@
-import Game.Levels.Cocientes
--- Here's what we'll put on the title screen
+import Game.Levels.Compacidad
 Title "Topología general"
 Introduction
 "

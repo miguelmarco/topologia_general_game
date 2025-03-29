@@ -44,7 +44,7 @@ Statement abierto_total : abierto_metrico (univ : Set X) := by
     rw [def_entorno_metrico]
   use 1
   Hint (hidden := true) "Recuerda que puedes separar un objetivo formado por dos partes."
-  constructor
+  fconstructor
   Hint (hidden := true) "Es un resultado de aritmética lineal simple."
   linarith
   intro y
