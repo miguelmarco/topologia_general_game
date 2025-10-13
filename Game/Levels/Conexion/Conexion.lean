@@ -1,5 +1,4 @@
 import Game.Levels.Compacidad.CocienteCompacto
-import Game.Levels.Subespacios
 
 World "Conexión"
 Level 1
