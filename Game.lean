@@ -1,4 +1,4 @@
-import Game.Levels.Compacidad
+import Game.Levels.Conexion
 Title "Topología general"
 Introduction
 "

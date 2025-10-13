@@ -12,6 +12,21 @@ Introduction "Despues de un reto un poco más dificil, vamos a ver uno más
 fácil: la unión de dos cerrados es cerrado.
 "
 
+/--
+Si `A` y `B` son dos conjuntos, `compl_union A B` dice que
+(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ
+-/
+TheoremDoc Set.compl_union as "compl_union" in "Utilidades"
+
+/--
+Si `A` y `B` son dos conjuntos, `compl_inter A B` dice que
+(A ∩ B)ᶜ = Aᶜ ∪ Bᶜ
+-/
+TheoremDoc Set.compl_inter as "compl_inter" in "Utilidades"
+
+NewTheorem Set.compl_union Set.compl_inter
+
+
 namespace topo
 
 open topo espacio_topologico Set

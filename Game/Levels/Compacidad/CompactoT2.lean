@@ -16,7 +16,6 @@ variable {X: Type} [Nonempty X] [espacio_topologico X]
 
 
 
-/-
 
 /--
 En un espacio vacío, todos los conjuntos son compactos.
@@ -103,7 +102,7 @@ theorem finito_compacto {K : Set X} (hK : Set.Finite K) : compacto K := by
       use {U}
       simp only [singleton_subset_iff, hUF, finite_singleton, recubrimiento, sUnion_singleton, hxU,
         and_self]
--/
+
 
 
 /--

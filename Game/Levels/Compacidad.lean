@@ -1,4 +1,4 @@
-import Game.Levels.Compacidad.CompactoT2
+import Game.Levels.Compacidad.CocienteCompacto
 Title "Compacidad"
 
 Introduction "
