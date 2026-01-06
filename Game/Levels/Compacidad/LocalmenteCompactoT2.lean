@@ -240,7 +240,7 @@ open compactificacion Function
 
 
 
-instance  (h1 : T2 X) (h2 : localmente_compacto X) : espacio_topologico (compactificacion X) where
+instance alexandroff (h1 : T2 X) (h2 : localmente_compacto X) : espacio_topologico (compactificacion X) where
   abiertos := { ((punto '' U) : Set (compactificacion X)) | U  ∈ (abiertos :Set (Set X)) } ∪ { U | compacto (punto ⁻¹' U)ᶜ}
   abierto_vacio := by
     left
@@ -426,7 +426,96 @@ instance  (h1 : T2 X) (h2 : localmente_compacto X) : espacio_topologico (compact
         exact hA
         exact hB
 
-Statement compactificacion_t2 (h1 : T2 X) (h2 : localmente_compacto X) : T2 (compactificacion X) := by
-  done
+theorem compactificacion_t2 (h1 : T2 X) (h2 : localmente_compacto X) : @T2  (compactificacion X) (alexandroff  h1 h2):= by
+  intro x y hxy
+  cases' x with x x
+  · cases' y with y y
+    have hxyd : x ≠ y
+    · intro h
+      apply hxy
+      rw [h]
+    have haux := h1 x y hxyd
+    choose U V hU hV hUV hxU hyV using haux
+    use punto '' U
+    use punto '' V
+    fconstructor
+    · left
+      use U
+    fconstructor
+    · left
+      use V
+    fconstructor
+    · ext p
+      simp only [mem_inter_iff, mem_image, mem_empty_iff_false, iff_false, not_and, not_exists,
+        forall_exists_index, and_imp]
+      intro q hq hqp y hy hyp
+      rw [← hyp] at hqp
+      simp only [punto.injEq] at hqp
+      have haux : q ∈ U ∩ V
+      · fconstructor
+        exact hq
+        rw [hqp]
+        exact hy
+      rw [hUV] at haux
+      exact haux
+    fconstructor
+    · use x
+    · use y
+    rw [localmente_compacto_T2 h1 ] at h2
+    have haux := h2 x
+    choose K hK hxK using haux
+    choose U hU  hxU hUK using hK
+    use punto '' U
+    use (punto '' K)ᶜ 
+    fconstructor
+    left
+    use U
+    fconstructor
+    right
+    simp only [mem_setOf_eq, preimage_compl, compl_involutive, Involutive.comp_self, cancela_inver]
+    have haux : punto ⁻¹' (punto '' K) = K
+    · ext
+      simp only [mem_preimage, mem_image, punto.injEq, exists_eq_right] 
+    rw [haux]
+    exact hxK
+    fconstructor
+    ext p
+    simp only [mem_inter_iff, mem_image, mem_compl_iff, not_exists, not_and, mem_empty_iff_false,
+      iff_false, not_forall, not_not, exists_prop, forall_exists_index, and_imp]
+    aesop
+    fconstructor
+    use x
+    simp only [mem_compl_iff, mem_image, and_false, exists_const, not_false_eq_true]
+  · cases' y with y y
+    rw [localmente_compacto_T2 h1] at h2
+    have hK := h2 y
+    choose K hyK hK using hK
+    choose U hU hyU hUK using hyK
+    use (punto '' K)ᶜ 
+    use punto '' U
+    fconstructor
+    · right
+      simp only [mem_setOf_eq, preimage_compl,compl_compl]
+      have haux : punto ⁻¹' (punto '' K) = K
+      · ext
+        simp only [mem_preimage, mem_image, punto.injEq, exists_eq_right] 
+      rw [haux]
+      exact hK
+    fconstructor
+    · left
+      use U
+    fconstructor
+    · ext p
+      simp only [mem_inter_iff, mem_compl_iff, mem_image, not_exists, not_and, mem_empty_iff_false,
+        iff_false]
+      aesop
+      save
+    fconstructor
+    intro ho
+    choose q hq  hq2 using ho
+    cases hq2
+    use y
+    simp only [ne_eq, not_true_eq_false] at hxy
+
 
 end topo

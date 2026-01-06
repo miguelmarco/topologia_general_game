@@ -1,5 +1,5 @@
-import Game.Levels.Conexion.Conexion
-Title "Conexion"
+import Game.Levels.Conexion.ClausuraConexo
+Title "Conexión"
 
 Introduction "
 En este mundo veremos la noción de **conexión**.
